@@ -1,0 +1,3 @@
+[submodule "nasu"]
+	path = nasu
+	url = https://github.com/HisuRo/nasu.git

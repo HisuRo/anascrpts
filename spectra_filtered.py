@@ -56,7 +56,7 @@ fig.suptitle(f"{inputs['pointname']} {inputs['shot']}")
 fig.tight_layout()
 
 fig2, ax2 = plt.subplots()
-ax2.plot(highk.t_s, highk.filt)
+ax2.plot(highk.t_s, highk_filt)
 ax2.set_xlabel("Time [s]")
 ax2.set_ylabel("Obsrerved electric field [V]")
 fig2.suptitle(f"{inputs['pointname']} {inputs['shot']}")

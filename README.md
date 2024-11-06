@@ -5,6 +5,7 @@ analysis_scripts
 -- inputs
 Note: input file name must be made by json file as the <basename>.json, <basename> is the basename of corresponding script, without extention .py.
 --- spectra_powerlaw.json
+--- spectra_virtIQ.json
 --- spectra.json
 -- nasu
 Note: Please clone nasu package from GitHub as submodule.
@@ -14,4 +15,5 @@ Note: Please clone nasu package from GitHub as submodule.
 -- config.json
 -- README.md
 -- spectra_powerlaw.py
+-- spectra_virtIQ.py
 -- spectra.py

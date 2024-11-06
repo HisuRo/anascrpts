@@ -4,35 +4,51 @@ import pickle
 import matplotlib.pyplot as plt # type: ignore
 import sys
 from datetime import datetime
+import csv
 
-wd = "~/analysis_scripts"
+# check working directory
+wd = "/home/nasut/analysis_scripts"
 cwd = os.getcwd()
 if cwd != wd:
+	print(cwd)
 	raise Exception("change working directory to analysis_scripts!!")
 
-now = datetime.now()
-
+# define input, tmp, and output directories
+input_filepath = os.path.join(wd, "inputs", "spectra")
 tmpdir = "/local-scratch/nasut"
 proc.ifNotMake(tmpdir)
+outdir_base = "/fusion/projects/xpsi/turbulence_and_transport/nasut"
 
 ### input ###
-inputs = {
-	'pointname': "mmspc4", 
-	'shot': 120329, 
-	'idx_startdomain': 9, 
-	'N_domain': 8, 
-	"tstart1": 2.0, 
-	"tend1": 2.3, 
-	"tstart2": 2.3, 
-	"tend2": 2.6, 
-	"tstart3": 2.6, 
-	"tend3": 2.9, 
-	"tstart4": 2.9, 
-	"tend4": 3.2
-}
+""" template 
+outdirname,120329
+output_filename,mmspc4_120329_spectra.pkl
+pointname,mmspc4
+shot,120329
+idx_startdomain,9
+N_domain,8
+tstart1,2.0
+tend1,2.3
+tstart2,2.3
+tend2,2.6
+tstart3,2.6
+tend3,2.9
+tstart4,2.9
+tend4,3.2
+"""
+inputs = {}
+with open(input_filepath, mode="r", newline="", encoding="utf-8") as file:
+	reader = csv.reader(file)
+	for row in reader:
+		if len(row) == 2:
+			key, value = row
+			inputs[key] = proc.convert_value(value)
+outdir = os.path.join(outdir_base, inputs["outdirname"])
+proc.ifNotMake(outdir)
 #############
 
 ### log #####
+now = datetime.now()
 logs = {
 	'script': {sys.argv[0]}, 
 	'analsis_scripts_gitid': {system.get_commit_id(wd)}, 
@@ -41,6 +57,8 @@ logs = {
 }
 #############
 
+
+# main
 highk = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inputs["idx_startdomain"], inputs["N_domain"])
 
 sp1 = highk.raw(highk).spectrum(inputs["tstart1"], inputs["tend1"])
@@ -50,16 +68,16 @@ sp4 = highk.raw(highk).spectrum(inputs["tstart4"], inputs["tend4"])
 
 # plot
 fig, ax = plt.subplots()
-ax.plot(sp1.f, sp1.psd, label=f"{inputs["tstart1"]} - {inputs["tend1"]} s")
-ax.plot(sp2.f, sp2.psd, label=f"{inputs["tstart2"]} - {inputs["tend2"]} s")
-ax.plot(sp3.f, sp3.psd, label=f"{inputs["tstart3"]} - {inputs["tend3"]} s")
-ax.plot(sp4.f, sp4.psd, label=f"{inputs["tstart4"]} - {inputs["tend4"]} s")
+ax.plot(sp1.f, sp1.psd, label=f"{inputs['tstart1']} - {inputs['tend1']} s")
+ax.plot(sp2.f, sp2.psd, label=f"{inputs['tstart2']} - {inputs['tend2']} s")
+ax.plot(sp3.f, sp3.psd, label=f"{inputs['tstart3']} - {inputs['tend3']} s")
+ax.plot(sp4.f, sp4.psd, label=f"{inputs['tstart4']} - {inputs['tend4']} s")
 ax.set_xlabel("Frequency [Hz]")
 ax.set_ylabel("PSD [dB]")
 ax.set_xscale("log")
 ax.set_yscale("log")
 ax.legend()
-fig.suptitle(f"{inputs["pointname"]} {inputs["shot"]}")
+fig.suptitle(f"{inputs['pointname']} {inputs['shot']}")
 fig.tight_layout()
 
 # output
@@ -76,11 +94,17 @@ outputs = {
 }
 outputs.update(inputs)
 outputs.update(logs)
+output_fileloc = os.path.join(outdir, f"{inputs['output_filename']}.pkl")
+output_figureloc = os.path.join(outdir, f"{inputs['output_filename']}.png")
 
-with open("mmspc4_120329_spectra.pkl", "wb") as f:
+with open(output_fileloc, "wb") as f:
 	pickle.dump(outputs, f)
 
-with open("mmspc4_120329_spectra.pkl", "rb") as f:
-	loaded_fig = pickle.load(f)
-
-loaded_fig.show()
+metadata = {
+	"Title": f"{inputs['output_filename']}.png", 
+	"Author": "Tatsuhiro Nasu", 
+	"Description": output_fileloc, 
+	"CreationTime": str(now)
+}
+fig.savefig(output_figureloc, format="png", metadata=metadata)
+plt.close(fig)

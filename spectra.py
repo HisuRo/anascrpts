@@ -51,7 +51,7 @@ proc.ifNotMake(outdir)
 now = datetime.now()
 logs = {
 	'script': {sys.argv[0]}, 
-	'analsis_scripts_gitid': {system.get_commit_id(wd)}, 
+	'analysis_scripts_gitid': {system.get_commit_id(wd)}, 
 	'nasu_gitid': {system.get_commit_id("nasu")}, 
 	'datetime': {now}
 }

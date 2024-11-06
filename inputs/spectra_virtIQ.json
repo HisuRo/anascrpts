@@ -5,6 +5,7 @@
 	"shot" : 120329, 
 	"idx_startdomain" : 9, 
 	"N_domain" : 8, 
+	"carrier_freq": 2e6,
 	"tstart1" : 2.0, 
 	"tend1" : 2.3, 
 	"tstart2" : 2.3, 

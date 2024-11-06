@@ -1,0 +1,6 @@
+{
+	"wd" : "/home/nasut/analysis_scripts",
+	"tmp_dir" : "/local-scratch/nasut", 
+	"base_output_dir" : "/fusion/projects/xpsi/turbulence_and_transport/nasut", 
+	"inputs_dir" : "inputs"
+}

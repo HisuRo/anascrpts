@@ -1,0 +1,7 @@
+{
+	"outdirname" : "120329_spectra", 
+	"output_filename" : "mmspc4_120329_spectra_powerlaw",  
+	"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_spectra.pkl", 
+	"fmin_mask" : 130e3, 
+	"fmax_mask" : 370e3
+}

@@ -55,6 +55,13 @@ ax.legend()
 fig.suptitle(f"{inputs['pointname']} {inputs['shot']}")
 fig.tight_layout()
 
+fig2, ax2 = plt.subplots()
+ax2.plot(highk.t_s, highk.filt)
+ax2.set_xlabel("Time [s]")
+ax2.set_ylabel("Obsrerved electric field [V]")
+fig2.suptitle(f"{inputs['pointname']} {inputs['shot']}")
+fig2.tight_layout()
+
 # output # EDIT HERE !!
 outputs = {
 	'fig': fig, 
@@ -65,7 +72,10 @@ outputs = {
 	'f3': sp3.f, 
 	'psd3': sp3.psd, 
 	'f4': sp4.f, 
-	'psd4': sp4.psd
+	'psd4': sp4.psd, 
+	"fig2": fig2, 
+	"t": highk.t_s, 
+	"highk_filt": highk_filt
 }
 
 # systematic output and close

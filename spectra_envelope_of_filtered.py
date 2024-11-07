@@ -17,16 +17,17 @@ data = system.load_pickle_data(inputs)
 	"outdirname" : "120329_spectra", 
 	"output_filename" : "mmspc4_120329_spectra_envelope_of_filtered",  
 	"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_filtered_spectra.pkl"
+	"NFFT" : 2**17
 }
 """
 #############
 
 # main EDIT HERE !!
 amp = calc.envelope(data["highk_filt"])
-sp1 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart1'], data['tend1'], NFFT=2**14)
-sp2 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart2'], data['tend2'], NFFT=2**14)
-sp3 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart3'], data['tend3'], NFFT=2**14)
-sp4 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart4'], data['tend4'], NFFT=2**14)
+sp1 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart1'], data['tend1'], NFFT=inputs["NFFT"])
+sp2 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart2'], data['tend2'], NFFT=inputs["NFFT"])
+sp3 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart3'], data['tend3'], NFFT=inputs["NFFT"])
+sp4 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart4'], data['tend4'], NFFT=inputs["NFFT"])
 # plot EDIT HEE !
 fig, ax = plt.subplots()
 ax.plot(sp1.f, sp1.psd, label=f"{data['tstart1']} - {data['tend1']} s")

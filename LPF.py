@@ -33,9 +33,9 @@ ax.plot(data["t"], d_filt)
 # ax.set_xscale("")
 # ax.set_yscale("")
 ax.set_xlabel("Time [s]")
-ax.set_ylabel(f"{inputs["data_label"]}")
+ax.set_ylabel(f"{inputs['data_label']}")
 # ax.legend()
-fig.suptitle(f"{inputs["output_filename"]}")
+fig.suptitle(f"{inputs['output_filename']}")
 fig.tight_layout()
 
 # output EDIT HERE !!

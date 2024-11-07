@@ -38,14 +38,14 @@ ax.set_yscale("log")
 ax.set_xlabel("Frequency [Hz]")
 ax.set_ylabel("PSD [V^2/Hz]")
 ax.legend()
-fig.suptitle(f"{inputs['pointname']} {inputs['shot']}")
+fig.suptitle(f"{data['pointname']} {data['shot']}")
 fig.tight_layout()
 
 fig2, ax2 = plt.subplots()
 ax2.plot(data["t"], amp)
 ax2.set_xlabel("Time [s]")
 ax2.set_ylabel("envelope [V]")
-fig2.suptitle(f"{inputs['pointname']} {inputs['shot']}")
+fig2.suptitle(f"{data['pointname']} {data['shot']}")
 fig2.tight_layout()
 
 # output EDIT HERE !!
@@ -64,6 +64,7 @@ outputs = {
 	"amp": amp, 
 	"Fs": data["Fs"]
 }
+
 
 # systematic output and close
 output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)

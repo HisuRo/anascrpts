@@ -15,15 +15,15 @@ data = system.load_pickle_data(inputs)
 """ template 
 {
 	"outdirname" : "120329_spectra", 
-	"output_filename" : "mmspc3_120329_spctra_envelope_of_filtered.pkl",  
-	"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc3_120329_spectra_filtered.pkl", 
+	"output_filename" : "mmspc4_120329_spectra_envelope_of_filtered",  
+	"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_filtered_spectra.pkl"
 	"NFFT" : 2**17
 }
 """
 #############
 
 # main EDIT HERE !!
-amp = calc.envelope(data["lowk_filt"])
+amp = calc.amplitude(data["d"])
 sp1 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart1'], data['tend1'], NFFT=inputs["NFFT"])
 sp2 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart2'], data['tend2'], NFFT=inputs["NFFT"])
 sp3 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart3'], data['tend3'], NFFT=inputs["NFFT"])
@@ -62,7 +62,7 @@ outputs = {
 	'psd4': sp4.psd, 
 	"fig2": fig2, 
 	"t": data["t"], 
-	"amp": amp, 
+	"d": amp, 
 	"Fs": data["Fs"]
 }
 

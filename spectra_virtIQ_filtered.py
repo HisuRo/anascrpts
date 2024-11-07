@@ -82,7 +82,7 @@ outputs = {
 	'psd4': sp4.psd, 
 	"fig2": fig2, 
 	"t" : lowk.t_s, 
-	"lowk_filt" : lowk_filt, 
+	"d" : lowk_filt, 
 	"Fs" : lowk.Fs
 }
 

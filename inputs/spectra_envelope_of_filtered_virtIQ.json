@@ -1,6 +1,0 @@
-{
-	"outdirname" : "120329_spectra", 
-	"output_filename" : "mmspc3_120329_spctra_envelope_of_filtered.pkl",  
-	"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc3_120329_spectra_filtered.pkl", 
-	"NFFT" : 131072
-}

@@ -3,7 +3,7 @@ analysis_scripts
 
 - contents
 -- inputs
---- spectra_envelope_of_filtered.json
+--- spectra_amplitude_of_filtered.json
 --- spectra_filtered.json
 --- spectra_powerlaw.json
 --- spectra_virtIQ.json
@@ -16,7 +16,7 @@ Note: Please clone nasu package from GitHub as submodule.
 -- .gitmodules
 -- config.json
 -- README.md
--- spectra_envelope_of_filtered.py
+-- spectra_amplitude_of_filtered.py
 -- spectra_filtered.py
 -- spectra_powerlaw.py
 -- spectra_virtIQ.py

@@ -28,10 +28,10 @@ now, logs = system.get_logs(wd)
 	"tend4" : 3.2 ,
 	"fpass_low" : 30e3, 
 	"fpass_high" : 120e3, 
-	"fstop_low" : 20e3, 
-	"fstop_high" : 150e3,
+	"fstop_low" : 15e3, 
+	"fstop_high" : 200e3,
 	"f_notch" : 95e3,
-	"Q_notch" : 47
+	"Q_notch" : 30
 }
 """
 #############
@@ -56,6 +56,8 @@ ax.plot(sp3.f, sp3.psd, label=f"{inputs['tstart3']} - {inputs['tend3']} s")
 ax.plot(sp4.f, sp4.psd, label=f"{inputs['tstart4']} - {inputs['tend4']} s")
 ax.set_xlabel("Frequency [Hz]")
 ax.set_ylabel("PSD filtered [V^2/Hz]")
+ax.set_xscale("log")
+ax.set_yscale("log")
 ax.legend()
 fig.suptitle(f"{inputs['pointname']} {inputs['shot']}")
 fig.tight_layout()

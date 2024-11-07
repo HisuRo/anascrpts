@@ -13,11 +13,11 @@
 	"tstart3" : 2.6, 
 	"tend3" : 2.9, 
 	"tstart4" : 2.9, 
-	"tend4" : 3.2, 
+	"tend4" : 3.2 ,
 	"fpass_low" : 30e3, 
 	"fpass_high" : 120e3, 
-	"fstop_low" : 20e3, 
-	"fstop_high" : 150e3,
+	"fstop_low" : 15e3, 
+	"fstop_high" : 200e3,
 	"f_notch" : 95e3,
-	"Q_notch" : 47
+	"Q_notch" : 30
 }

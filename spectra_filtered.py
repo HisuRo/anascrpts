@@ -75,7 +75,8 @@ outputs = {
 	'psd4': sp4.psd, 
 	"fig2": fig2, 
 	"t": highk.t_s, 
-	"highk_filt": highk_filt
+	"highk_filt": highk_filt, 
+	"Fs": highk.Fs
 }
 
 # systematic output and close

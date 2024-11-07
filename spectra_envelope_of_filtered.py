@@ -23,13 +23,12 @@ data = system.load_pickle_data(inputs)
 
 # main EDIT HERE !!
 amp = calc.envelope(data["highk_filt"])
-sp1 = calc.spectrum(data["t"], amp, data["Fs"], {data['tstart1']}, {data['tend1']}, NFFT=2**14)
-sp2 = calc.spectrum(data["t"], amp, data["Fs"], {data['tstart2']}, {data['tend2']}, NFFT=2**14)
-sp3 = calc.spectrum(data["t"], amp, data["Fs"], {data['tstart3']}, {data['tend3']}, NFFT=2**14)
-sp4 = calc.spectrum(data["t"], amp, data["Fs"], {data['tstart4']}, {data['tend4']}, NFFT=2**14)
-
-# plot EDIT HERE !!
-fig, ax = plt.subplots()
+sp1 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart1'], data['tend1'], NFFT=2**14)
+sp2 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart2'], data['tend2'], NFFT=2**14)
+sp3 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart3'], data['tend3'], NFFT=2**14)
+sp4 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart4'], data['tend4'], NFFT=2**14)
+# plot EDIT HEE !
+fig, ax = pt.subplots()
 ax.plot(sp1.f, sp1.psd, label=f"{data['tstart1']} - {data['tend1']} s")
 ax.plot(sp2.f, sp2.psd, label=f"{data['tstart2']} - {data['tend2']} s")
 ax.plot(sp3.f, sp3.psd, label=f"{data['tstart3']} - {data['tend3']} s")

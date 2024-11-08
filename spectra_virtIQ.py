@@ -33,10 +33,10 @@ now, logs = system.get_logs(wd)
 lowk = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inputs["idx_startdomain"], inputs["N_domain"])
 lowk.produce_virtual_IQ_signal(carrier_freq_Hz=inputs["carrier_freq"])
 
-sp1 = lowk.virtIQ(lowk).spectrum(inputs["tstart1"], inputs["tend1"])
-sp2 = lowk.virtIQ(lowk).spectrum(inputs["tstart2"], inputs["tend2"])
-sp3 = lowk.virtIQ(lowk).spectrum(inputs["tstart3"], inputs["tend3"])
-sp4 = lowk.virtIQ(lowk).spectrum(inputs["tstart4"], inputs["tend4"])
+sp1 = get_d3d.virtIQ(lowk).spectrum(inputs["tstart1"], inputs["tend1"])
+sp2 = get_d3d.virtIQ(lowk).spectrum(inputs["tstart2"], inputs["tend2"])
+sp3 = get_d3d.virtIQ(lowk).spectrum(inputs["tstart3"], inputs["tend3"])
+sp4 = get_d3d.virtIQ(lowk).spectrum(inputs["tstart4"], inputs["tend4"])
 
 # plot # EDIT HERE !!
 fig, ax = plt.subplots()

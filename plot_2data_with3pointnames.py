@@ -19,7 +19,7 @@ data_lowk = system.load_pickle_data(inputs, "input_datpath_lowk")
 	"output_filename" : "mmspc3_mmspc4_120329_LPFed_amplitudes",  
 	"input_datpath_highk" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_LPFed_amplitude.pkl", 
 	"input_datpath_lowk" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc3_120329_LPFed_amplitude.pkl", 
-	"pointname1" : "echpwrc", 
+	"pointname1" : "echpwr", 
 	"pointname2" : "pinj", 
 	"pointname3" : "ece15", 
 	"shot" : 120329, 

@@ -31,10 +31,10 @@ now, logs = system.get_logs(wd)
 # main # EDIT HERE !!
 highk = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inputs["idx_startdomain"], inputs["N_domain"])
 
-sp1 = highk.raw(highk).spectrum(inputs["tstart1"], inputs["tend1"])
-sp2 = highk.raw(highk).spectrum(inputs["tstart2"], inputs["tend2"])
-sp3 = highk.raw(highk).spectrum(inputs["tstart3"], inputs["tend3"])
-sp4 = highk.raw(highk).spectrum(inputs["tstart4"], inputs["tend4"])
+sp1 = get_d3d.raw(highk).spectrum(inputs["tstart1"], inputs["tend1"])
+sp2 = get_d3d.raw(highk).spectrum(inputs["tstart2"], inputs["tend2"])
+sp3 = get_d3d.raw(highk).spectrum(inputs["tstart3"], inputs["tend3"])
+sp4 = get_d3d.raw(highk).spectrum(inputs["tstart4"], inputs["tend4"])
 
 # plot # EDIT HERE !!
 fig, ax = plt.subplots()

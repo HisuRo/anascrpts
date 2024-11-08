@@ -2,7 +2,7 @@
 
 import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
-from nasu import system, calc
+from nasu import system, calc, get_d3d
 
 # initial setting and input
 config, wd = system.check_working_directory()
@@ -24,10 +24,11 @@ data = system.load_pickle_data(inputs)
 
 # main EDIT HERE !!
 amp = calc.amplitude(data["d"])
-sp1 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart1'], data['tend1'], NFFT=inputs["NFFT"])
-sp2 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart2'], data['tend2'], NFFT=inputs["NFFT"])
-sp3 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart3'], data['tend3'], NFFT=inputs["NFFT"])
-sp4 = calc.spectrum(data["t"], amp, data["Fs"], data['tstart4'], data['tend4'], NFFT=inputs["NFFT"])
+amp_obj = get_d3d.signal(data["t"], amp, data["Fs"])
+sp1 = amp_obj.spectrum(data['tstart1'], data['tend1'], NFFT=inputs["NFFT"])
+sp2 = amp_obj.spectrum(data['tstart2'], data['tend2'], NFFT=inputs["NFFT"])
+sp3 = amp_obj.spectrum(data['tstart3'], data['tend3'], NFFT=inputs["NFFT"])
+sp4 = amp_obj.spectrum(data['tstart4'], data['tend4'], NFFT=inputs["NFFT"])
 # plot EDIT HEE !
 fig, ax = plt.subplots()
 ax.plot(sp1.f, sp1.psd, label=f"{data['tstart1']} - {data['tend1']} s")

@@ -36,10 +36,11 @@ now, logs = system.get_logs(wd)
 highk = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inputs["idx_startdomain"], inputs["N_domain"])
 highk_filt = calc.bandPass(highk.d, highk.Fs, fp=[inputs["fpass_low"], inputs["fpass_high"]], fs=[inputs["fstop_low"], inputs["fstop_high"]])
 
-sp1 = calc.spectrum(highk.t_s, highk_filt, highk.Fs, inputs["tstart1"], inputs["tend1"], NFFT=2**14)
-sp2 = calc.spectrum(highk.t_s, highk_filt, highk.Fs, inputs["tstart2"], inputs["tend2"], NFFT=2**14)
-sp3 = calc.spectrum(highk.t_s, highk_filt, highk.Fs, inputs["tstart3"], inputs["tend3"], NFFT=2**14)
-sp4 = calc.spectrum(highk.t_s, highk_filt, highk.Fs, inputs["tstart4"], inputs["tend4"], NFFT=2**14)
+highk_filt_obj = get_d3d.signal(highk.t_s, highk_filt, highk.Fs)
+sp1 = highk_filt_obj.spectrum(inputs["tstart1"], inputs["tend1"], NFFT=2**14)
+sp2 = highk_filt_obj.spectrum(inputs["tstart2"], inputs["tend2"], NFFT=2**14)
+sp3 = highk_filt_obj.spectrum(inputs["tstart3"], inputs["tend3"], NFFT=2**14)
+sp4 = highk_filt_obj.spectrum(inputs["tstart4"], inputs["tend4"], NFFT=2**14)
 
 # plot # EDIT HERE !!
 fig, ax = plt.subplots()

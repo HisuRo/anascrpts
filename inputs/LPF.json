@@ -1,8 +1,8 @@
 {
 	"outdirname" : "120329_spectra", 
-	"output_filename" : "mmspc4_120329_LPFed_amplitude",  
-	"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_spectra_envelope_of_filtered.pkl", 
-	"fpass" : 1e3, 
-	"fstop" : 10e3, 
+	"output_filename" : "mmspc3_120329_LPFed_amplitude_200Hz",  
+	"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc3_120329_spectra_amplitude_of_filtered.pkl", 
+	"fpass" : 2e2, 
+	"fstop" : 1e3, 
 	"data_label" : "filtered amplitude [V]"
 }

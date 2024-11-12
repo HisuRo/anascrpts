@@ -1,0 +1,15 @@
+{
+	"outdirname" : "120329_crossspectra", 
+	"output_filename" : "mmspc4_mmspc3_120329_crossspectra_amplitudes_of_filtered",  
+	"input_datpath1" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_spectra_amplitude_of_filtered.pkl", 
+	"input_datpath2" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc3_120329_spectra_amplitude_of_filtered.pkl", 
+	"tstart1" : 2.0, 
+	"tend1" : 2.3, 
+	"tstart2" : 2.3, 
+	"tend2" : 2.6, 
+	"tstart3" : 2.6, 
+	"tend3" : 2.9, 
+	"tstart4" : 2.9, 
+	"tend4" : 3.2, 
+	"NFFT" : 131072
+}

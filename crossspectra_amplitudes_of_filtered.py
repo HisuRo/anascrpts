@@ -35,10 +35,10 @@ data2 = system.load_pickle_data(inputs, "input_datpath2")
 # main EDIT HERE !!
 check.same_data(data1["t"], data2["t"])
 tw = get_d3d.twin_signals(data1["t"], data1["d"], data2["d"], data1["Fs"])
-cs1 = tw.cross_spectrum(inputs["tstart1"], inputs["tend1"], NFFT=inputs["NFFT"])
-cs2 = tw.cross_spectrum(inputs["tstart2"], inputs["tend2"], NFFT=inputs["NFFT"])
-cs3 = tw.cross_spectrum(inputs["tstart3"], inputs["tend3"], NFFT=inputs["NFFT"])
-cs4 = tw.cross_spectrum(inputs["tstart4"], inputs["tend4"], NFFT=inputs["NFFT"])
+cs1 = tw.cross_spectrum(inputs["tstart1"], inputs["tend1"], NFFT=inputs["NFFT"], ovr=0)
+cs2 = tw.cross_spectrum(inputs["tstart2"], inputs["tend2"], NFFT=inputs["NFFT"], ovr=0)
+cs3 = tw.cross_spectrum(inputs["tstart3"], inputs["tend3"], NFFT=inputs["NFFT"], ovr=0)
+cs4 = tw.cross_spectrum(inputs["tstart4"], inputs["tend4"], NFFT=inputs["NFFT"], ovr=0)
 noiselevel = 1. / cs1.NEns
 
 # plot EDIT HERE !!
@@ -48,7 +48,7 @@ ax1.plot(cs1.f, cs1.cohsq, label=f"{inputs['tstart1']} - {inputs['tend1']} s")
 ax1.plot(cs2.f, cs2.cohsq, label=f"{inputs['tstart2']} - {inputs['tend2']} s")
 ax1.plot(cs3.f, cs3.cohsq, label=f"{inputs['tstart3']} - {inputs['tend3']} s")
 ax1.plot(cs4.f, cs4.cohsq, label=f"{inputs['tstart4']} - {inputs['tend4']} s")
-ax1.hlines(noiselevel, cs1.f.min(), cs1.f.max(), ls="--", c="grey")
+ax1.hlines(noiselevel, cs1.f.min(), cs1.f.max(), ls="--", colors="grey")
 ax1.set_xscale("log")
 # ax.set_yscale("")
 ax1.set_ylabel("Coherence^2")

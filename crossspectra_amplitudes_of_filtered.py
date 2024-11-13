@@ -42,8 +42,8 @@ cs4 = tw.cross_spectrum(inputs["tstart4"], inputs["tend4"], NFFT=inputs["NFFT"],
 noiselevel = 1. / cs1.NEns
 
 # plot EDIT HERE !!
-fig, axs = plt.subplots(2, sharex=True)
-ax1, ax2 = axs
+fig, axs = plt.subplots(3, sharex=True)
+ax1, ax2, ax3 = axs
 ax1.plot(cs1.f, cs1.cohsq, label=f"{inputs['tstart1']} - {inputs['tend1']} s")
 ax1.plot(cs2.f, cs2.cohsq, label=f"{inputs['tstart2']} - {inputs['tend2']} s")
 ax1.plot(cs3.f, cs3.cohsq, label=f"{inputs['tstart3']} - {inputs['tend3']} s")
@@ -59,8 +59,14 @@ ax2.plot(cs1.f, cs1.phase, label=f"{inputs['tstart1']} - {inputs['tend1']} s")
 ax2.plot(cs2.f, cs2.phase, label=f"{inputs['tstart2']} - {inputs['tend2']} s")
 ax2.plot(cs3.f, cs3.phase, label=f"{inputs['tstart3']} - {inputs['tend3']} s")
 ax2.plot(cs4.f, cs4.phase, label=f"{inputs['tstart4']} - {inputs['tend4']} s")
-ax2.set_xlabel("Frequency [Hz]")
 ax2.set_ylabel("Phase [rad]")
+
+ax3.plot(cs1.f, cs1.psd, label=f"{inputs['tstart1']} - {inputs['tend1']} s")
+ax3.plot(cs2.f, cs2.psd, label=f"{inputs['tstart2']} - {inputs['tend2']} s")
+ax3.plot(cs3.f, cs3.psd, label=f"{inputs['tstart3']} - {inputs['tend3']} s")
+ax3.plot(cs4.f, cs4.psd, label=f"{inputs['tstart4']} - {inputs['tend4']} s")
+ax3.set_xlabel("Frequency [Hz]")
+ax3.set_ylabel("ABS(CSD) [V^2/Hz]")
 
 fig.suptitle(f"{inputs['output_filename']}")
 fig.tight_layout()

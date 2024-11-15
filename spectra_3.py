@@ -21,7 +21,8 @@ now, logs = system.get_logs(wd)
 	"tstart2" : 2.3, 
 	"tend2" : 2.6, 
 	"tstart3" : 2.6, 
-	"tend3" : 2.9
+	"tend3" : 2.9, 
+	"NFFT" : 1024
 }
 """
 #############
@@ -29,9 +30,9 @@ now, logs = system.get_logs(wd)
 # main # EDIT HERE !!
 highk = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inputs["idx_startdomain"], inputs["N_domain"])
 
-sp1 = get_d3d.raw(highk).spectrum(inputs["tstart1"], inputs["tend1"])
-sp2 = get_d3d.raw(highk).spectrum(inputs["tstart2"], inputs["tend2"])
-sp3 = get_d3d.raw(highk).spectrum(inputs["tstart3"], inputs["tend3"])
+sp1 = get_d3d.raw(highk).spectrum(inputs["tstart1"], inputs["tend1"], NFFT=inputs["NFFT"])
+sp2 = get_d3d.raw(highk).spectrum(inputs["tstart2"], inputs["tend2"], NFFT=inputs["NFFT"])
+sp3 = get_d3d.raw(highk).spectrum(inputs["tstart3"], inputs["tend3"], NFFT=inputs["NFFT"])
 
 # plot # EDIT HERE !!
 fig, ax = plt.subplots()

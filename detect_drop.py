@@ -59,7 +59,7 @@ outputs = {
 	"t": t, 
 	"d": d, 
 	"d_rate": rate, 
-	"t_drop": t_drop
+	"t_event": t_drop
 }
 
 # systematic output and close

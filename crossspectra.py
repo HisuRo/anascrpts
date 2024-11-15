@@ -49,7 +49,6 @@ ax1.plot(cs2.f, cs2.cohsq, label=f"{inputs['tstart2']} - {inputs['tend2']} s")
 ax1.plot(cs3.f, cs3.cohsq, label=f"{inputs['tstart3']} - {inputs['tend3']} s")
 ax1.plot(cs4.f, cs4.cohsq, label=f"{inputs['tstart4']} - {inputs['tend4']} s")
 ax1.hlines(noiselevel, cs1.f.min(), cs1.f.max(), ls="--", colors="grey")
-ax1.set_xscale("log")
 # ax.set_yscale("")
 ax1.set_ylabel("Coherence^2")
 ax1.set_ylim(0, noiselevel * 10)
@@ -77,15 +76,19 @@ outputs = {
 	"f1" : cs1.f, 
 	"cohsq1" : cs1.cohsq, 
 	"phase1" : cs1.phase, 
+	"csdamp1" : cs1.psd, 
 	"f2" : cs2.f, 
 	"cohsq2" : cs2.cohsq, 
-	"phase2" : cs2.phase, 
+	"phase2" : cs2.phase,
+	"csdamp2" : cs1.psd,  
 	"f3" : cs3.f, 
 	"cohsq3" : cs3.cohsq, 
 	"phase3" : cs3.phase, 
+	"csdamp2" : cs1.psd, 
 	"f4" : cs4.f, 
 	"cohsq4" : cs4.cohsq, 
 	"phase4" : cs4.phase, 
+	"csdamp4" : cs1.psd
 }
 
 # systematic output and close

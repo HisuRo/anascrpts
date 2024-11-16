@@ -1,0 +1,13 @@
+{
+	"outdirname" : "120329_spectra_sawtooth", 
+	"output_filename": "mmspc4_120329_spectra_around2020ms", 
+	"pointname" : "mmspc4", 
+	"shot" : 120329, 
+	"idx_startdomain" : 9, 
+	"N_domain" : 1, 
+	"tstart1" : 2.0155, 
+	"tend1" : 2.0205, 
+	"tstart2" : 2.0205, 
+	"tend2" : 2.0255, 
+	"NFFT" : 512
+}

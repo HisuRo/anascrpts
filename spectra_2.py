@@ -30,7 +30,6 @@ highk = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inpu
 
 sp1 = get_d3d.raw(highk).spectrum(inputs["tstart1"], inputs["tend1"], NFFT=inputs["NFFT"])
 sp2 = get_d3d.raw(highk).spectrum(inputs["tstart2"], inputs["tend2"], NFFT=inputs["NFFT"])
-sp3 = get_d3d.raw(highk).spectrum(inputs["tstart3"], inputs["tend3"], NFFT=inputs["NFFT"])
 
 # plot # EDIT HERE !!
 fig, ax = plt.subplots()

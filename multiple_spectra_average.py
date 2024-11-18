@@ -40,7 +40,7 @@ f = sp.f
 fig, ax = plt.subplots()
 for i in range(N_sp):
 	ax.plot(f, psds[i], ".", label=f"{inputs['tstart_list'][i]} - {inputs['tend_list'][i]} s")
-ax.plot(f, psd_avg, label=f"averaged")
+ax.plot(f, psd_avg, label=f"averaged", c="black")
 ax.set_xlabel("Frequency [Hz]")
 ax.set_ylabel("PSD [V^2/Hz]")
 ax.set_xscale("log")

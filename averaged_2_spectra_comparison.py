@@ -30,26 +30,23 @@ psd2 = data2["psd_avg"]
 diff_psd = psd2 - psd1
 
 # plot EDIT HERE !!
-fig, ax = plt.subplots()
+fig, axs = plt.subplots(2, sharex=True)
+ax, ax2 = axs
 ax.plot(f, psd1, label=f"{inputs['label1']}")
 ax.plot(f, psd2, label=f"{inputs['label2']}")
 ax.set_xscale("log")
 ax.set_yscale("log")
-ax.set_xlabel("Frequency [Hz]")
 ax.set_ylabel("PSD [V^2/Hz]")
 ax.legend()
-fig.suptitle(f"{inputs['output_filename']}")
-fig.tight_layout()
 
-fig2, ax2 = plt.subplots()
 ax2.plot(f, diff_psd, label=f"{inputs['label2']} - {inputs['label1']}")
 ax2.hlines(0, f.min(), f.max(), ls="--", colors="grey")
-ax2.set_xscale("log")
 ax2.set_xlabel("Frequency [Hz]")
 ax2.set_ylabel("PSD difference [V^2/Hz]")
 ax2.legend()
-fig2.suptitle(f"{inputs['output_filename']}")
-fig2.tight_layout()
+
+fig.suptitle(f"{inputs['output_filename']}")
+fig.tight_layout()
 
 # output EDIT HERE !!
 outputs = {
@@ -57,7 +54,6 @@ outputs = {
 	"f" : f, 
 	"psd1" : psd1, 
 	"psd2" : psd2, 
-	"fig2" : fig2, 
 	"diff" : diff_psd, 
 }
 

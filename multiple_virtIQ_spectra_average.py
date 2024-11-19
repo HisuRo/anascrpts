@@ -28,7 +28,7 @@ now, logs = system.get_logs(wd)
 # main # EDIT HERE !!
 N_sp = len(inputs["tstart_list"])
 tt = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inputs["idx_startdomain"], inputs["N_domain"])
-tt.produce_virtual_IQ_signal(carrier_freq_Hz=inputs['carrier_freq'], downsampling_factor=20)
+tt.produce_virtual_IQ_signal(carrier_freq_Hz=inputs['carrier_freq'], downsampling_factor=inputs["downsampling_factor"])
 psds = [0]*N_sp
 
 for i in range(N_sp):

@@ -1,8 +1,8 @@
 {
 	"outdirname" : "120329_spectra_sawtooth", 
-	"output_filename" : "mmspc4_120329_spectra_comparison_before_after_sawteeth_from2900-3200ms",  
-	"input_datpath1" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc4_120329_spectra_before_sawteeth_from2900-3200ms.pkl", 
-	"input_datpath2" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc4_120329_spectra_after_sawteeth_from2900-3200ms.pkl", 
+	"output_filename" : "mmspc4_120329_spectra_comparison_before_after_sawteeth_from2900-3200ms_NFFT512",  
+	"input_datpath1" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc4_120329_spectra_before_sawteeth_from2900-3200ms_NFFT512.pkl", 
+	"input_datpath2" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc4_120329_spectra_after_sawteeth_from2900-3200ms_NFFT512.pkl", 
 	"label1" : "before", 
 	"label2" : "after"
 }

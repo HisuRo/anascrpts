@@ -1,6 +1,6 @@
 {
 	"outdirname" : "120329_spectra_sawtooth", 
-	"output_filename": "mmspc4_120329_spectra_before_sawteeth_from2900-3200ms_NFFT512", 
+	"output_filename": "mmspc4_120329_spectra_after_sawteeth_from2900-3200ms_NFFT512", 
 	"pointname" : "mmspc4", 
 	"shot" : 120329, 
 	"idx_startdomain" : 14, 

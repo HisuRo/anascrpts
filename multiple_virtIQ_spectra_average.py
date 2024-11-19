@@ -18,6 +18,7 @@ now, logs = system.get_logs(wd)
 	"idx_startdomain" : 9, 
 	"N_domain" : 3, 
 	"carrier_freq" : 2e6, 
+	"downsampling_factor" : 20, 
 	"tstart_list" : [2.0205, 2.0495, 2.0715, 2.0905, 2.1255, 2.156, 2.179, 2.198, 2.218, 2.243, 2.265, 2.285], 
 	"tend_list" : [2.0255, 2.0545, 2.0765, 2.0955, 2.1305, 2.161, 2.184, 2.203, 2.223, 2.248, 2.27, 2.29], 
 	"NFFT" : 128

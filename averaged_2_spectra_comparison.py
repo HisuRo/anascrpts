@@ -18,7 +18,8 @@ data2 = system.load_pickle_data(inputs, "input_datpath2")
 	"input_datpath1" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc4_120329_spectra_before_sawteeth_from2000-2300ms.pkl", 
 	"input_datpath2" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc4_120329_spectra_after_sawteeth_from2000-2300ms.pkl", 
 	"label1" : "before", 
-	"label2" : "after"
+	"label2" : "after", 
+	"xscale" : "linear"
 }
 """
 #############
@@ -34,7 +35,7 @@ fig, axs = plt.subplots(2, sharex=True)
 ax, ax2 = axs
 ax.plot(f, psd1, label=f"{inputs['label1']}")
 ax.plot(f, psd2, label=f"{inputs['label2']}")
-ax.set_xscale("log")
+ax.set_xscale(inputs['xscale'])
 ax.set_yscale("log")
 ax.set_ylabel("PSD [V^2/Hz]")
 ax.legend()

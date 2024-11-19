@@ -1,13 +1,13 @@
 {
 	"outdirname" : "120329_spectra_sawtooth", 
-	"output_filename": "mmspc3_120329_spectra_before_sawteeth_from2000-2300ms", 
+	"output_filename": "mmspc3_120329_spectra_after_sawteeth_from2900-3200ms", 
 	"pointname" : "mmspc3", 
 	"shot" : 120329, 
-	"idx_startdomain" : 9, 
-	"N_domain" : 3, 
+	"idx_startdomain" : 14, 
+	"N_domain" : 2, 
 	"carrier_freq" : 2e6, 
 	"downsampling_factor" : 20, 
-	"tstart_list" : [2.0205, 2.0495, 2.0715, 2.0905, 2.1255, 2.156, 2.179, 2.198, 2.218, 2.243, 2.265, 2.285], 
-	"tend_list" : [2.0255, 2.0545, 2.0765, 2.0955, 2.1305, 2.161, 2.184, 2.203, 2.223, 2.248, 2.27, 2.29], 
+	"tstart_list" : [2.92,2.9535,2.983,3.005,3.035,3.0615,3.083,3.103,3.125,3.148,3.1685,3.186], 
+	"tend_list" : [2.925,2.9585,2.988,3.01,3.04,3.0665,3.088,3.108,3.13,3.153,3.1735,3.191], 
 	"NFFT" : 128
 }

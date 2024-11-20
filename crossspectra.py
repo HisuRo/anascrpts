@@ -61,7 +61,7 @@ for i in range(Nsp):
 
 ax1.set_ylabel("Coherence^2")
 ax1.set_ylim(0, noiselevel * 5)
-ax1.legend()
+ax1.legend(loc="upper left", bbox_to_anchor=(1, 1))
 
 ax2.set_ylabel("Phase [rad]")
 

@@ -54,7 +54,7 @@ for i in range(Nsp):
 	tstart = inputs["tstart_list"][i]
 	tend = inputs["tend_list"][i]
 	cs = tw.cross_spectrum(tstart, tend, NFFT=inputs["NFFT"], ovr=0)
-	noiselevel = 1. / cs.NEns
+	noiselevel = 4. / cs.NEns
 
 	cohsq_list[i] = cs.cohsq
 	phase_list[i] = cs.phase

@@ -66,8 +66,9 @@ for i in range(Nsp):
 	ax3.plot(cs.f, cs.csdamp, label=f"{tstart} - {tend} s")
 
 ax1.set_ylabel("Coherence^2")
-ax1.set_ylim(0, noiselevel * 10)
-ax1.legend()
+ax1.set_ylim(0, noiselevel * 5)
+ax1.legend(loc="upper left", bbox_to_anchor=(1, 1))
+ax1.text(0.95, 0.95, 'noiselevel = 4/NEns', transform=ax1.transAxes, ha='right', va='top')
 
 ax2.set_ylabel("Phase [rad]")
 

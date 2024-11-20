@@ -7,8 +7,8 @@
 	"idx_startdomain" : 9, 
 	"N_domain" : 8, 
 	"carrier_freq" : 2e6, 
-	"downsampling_factor" : 25, 
+	"downsampling_factor" : 100, 
 	"tstart_list" : [2.0, 2.3, 2.6, 2.9], 
 	"tend_list" : [2.3, 2.6, 2.9, 3.2], 
-	"NFFT" : 256
+	"NFFT" : 1024
 }

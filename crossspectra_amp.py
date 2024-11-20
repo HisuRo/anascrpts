@@ -53,7 +53,7 @@ csdamp_list = [0] * Nsp
 for i in range(Nsp):
 	tstart = inputs["tstart_list"][i]
 	tend = inputs["tend_list"][i]
-	cs = tw.cross_spectrum(tstart, tend, NFFT=inputs["NFFT"], ovr=0)
+	cs = tw.cross_spectrum(tstart, tend, NFFT=inputs["NFFT"], ovr=0.5)
 	noiselevel = 4. / cs.NEns
 
 	cohsq_list[i] = cs.cohsq

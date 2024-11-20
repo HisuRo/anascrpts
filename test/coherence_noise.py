@@ -39,7 +39,6 @@ print(
 	f"beta : {beta}\n"
 	)
 
-
 fig, ax1 = plt.subplots(1, sharex=True)
 
 ax1.plot(cs.f, cs.cohsq, alpha=0.6)

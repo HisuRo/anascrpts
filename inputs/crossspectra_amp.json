@@ -1,0 +1,14 @@
+{
+	"outdirname" : "120329_crossspectra", 
+	"output_filename" : "mmspc4_mmspc3_120329_crossspectra_amplitudes",  
+	"pointname1" : "mmspc4", 
+	"pointname2" : "mmspc3", 
+	"shot" : 120329, 
+	"idx_startdomain" : 9, 
+	"N_domain" : 3, 
+	"carrier_freq" : 2e6, 
+	"downsampling_factor" : 25, 
+	"tstart_list" : [2.0], 
+	"tend_list" : [2.3], 
+	"NFFT" : 8192
+}

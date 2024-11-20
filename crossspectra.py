@@ -22,7 +22,8 @@ data2 = system.load_pickle_data(inputs, "input_datpath2")
 	"downsampling_factor" : 100, 
 	"tstart_list" : [2.0, 2.3, 2.6, 2.9], 
 	"tend_list" : [2.3, 2.6, 2.9, 3.2], 
-	"NFFT" : 1024
+	"NFFT" : 1024, 
+	"xscale" : "log"
 }
 """
 #############
@@ -62,10 +63,11 @@ for i in range(Nsp):
 ax1.set_ylabel("Coherence^2")
 ax1.set_ylim(0, noiselevel * 5)
 ax1.legend(loc="upper left", bbox_to_anchor=(1, 1))
+ax1.text(0.95, 0.95, 'noiselevel = 4/NEns', transform=ax1.transAxes, ha='right', va='top')
 
 ax2.set_ylabel("Phase [rad]")
 
-ax3.set_xscale("log")
+ax3.set_xscale(inputs["xscale"])
 ax3.set_xlabel("Frequency [Hz]")
 ax3.set_ylabel("ABS(CSD) [V^2/Hz]")
 ax3.set_yscale("log")

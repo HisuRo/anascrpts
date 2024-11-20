@@ -6,5 +6,6 @@
 	"downsampling_factor" : 200, 
 	"tstart_list" : [2.0, 2.3, 2.6, 2.9], 
 	"tend_list" : [2.3, 2.6, 2.9, 3.2], 
-	"NFFT" : 1024
+	"NFFT" : 1024, 
+	"xscale" : "log"
 }

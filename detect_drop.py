@@ -20,7 +20,8 @@ now, logs = system.get_logs(wd)
 	"shot" : 120329,
 	"tstart" : 2.0, 
 	"tend" : 3.2, 
-	"rate_threshold" : 0.7
+	"rate_threshold" : 0.7, 
+	"process_width : 0.010
 }
 "outdirname" : set output directory name
 "output_filename" : set output file name
@@ -29,6 +30,7 @@ now, logs = system.get_logs(wd)
 "tstart" : start time of target period [s]
 "tend" : end time of target period [s]
 "rate_threshold" : threshold of rate of change in time over which the signal drops [S(t) unit / s] (absolute value)
+"process_width" : time width to calculate peak to peak value [s]. The center of process_width is t_drop event.
 """
 #############
 
@@ -40,6 +42,13 @@ rate = np.diff(d) / np.diff(t)
 inverted_rate = - rate
 idx_drop, _ = find_peaks(inverted_rate, height=inputs["rate_threshold"])
 t_drop = t[1:][idx_drop]
+
+process_width = int(tt.Fs * inputs["process_width"])
+idxs_arounddrop = np.tile(idx_drop.reshape(idx_drop.size, 1), process_width) + np.arange(process_width) - process_width // 2
+d_process = d[idxs_arounddrop]
+drop_depth = d_process.max(axis=-1) - d_process.min(axis=-1)
+drop_center = (d_process.max(axis=-1) + d_process.min(axis=-1)) / 2
+rel_drop_depth = drop_depth / drop_center
 
 # plot # EDIT HERE !!
 fig, axs = plt.subplots(2, sharex=True)
@@ -59,7 +68,10 @@ outputs = {
 	"t": t, 
 	"d": d, 
 	"d_rate": rate, 
-	"t_event": t_drop
+	"t_event": t_drop, 
+	"drop_depth" : drop_depth, 
+	"drop_center" : drop_center, 
+	"rel_drop_depth" : rel_drop_depth
 }
 
 # systematic output and close

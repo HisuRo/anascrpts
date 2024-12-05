@@ -1,0 +1,14 @@
+{
+	"outdirname" : "174070_spectra", 
+	"output_filename": "highk_ch3_174070_4.3-4.7_spectra", 
+	"sn" : 174070, 
+    "subsn" : 1, 
+    "diagname" : "MWRM-PXI", 
+    "ch_i" : 1, 
+    "ch_q" : 2, 
+	"tstart_retrieve" : 4.0,
+    "tend_retrieve" : 5.0,
+	"tstart_list" : [4.3, 4.3335, 4.4335, 4.47, 4.5335, 4.6335], 
+	"tend_list" : [4.3314, 4.4314, 4.47, 4.5314, 4.6314, 4.7], 
+    "NFFT" : 1024
+}

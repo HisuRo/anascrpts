@@ -1,0 +1,12 @@
+{
+	"outdirname" : "174070_specgram", 
+	"output_filename": "highk_ch3_174070_spectrogram", 
+	"sn" : 174070,
+    "subsn" : 1, 
+    "tstart" : 2.5, 
+    "tend" : 8.5, 
+    "diagname" : "MWRM-PXI", 
+    "ch_i" : 1, 
+    "ch_q" : 2, 
+    "NFFT" : 4096
+}

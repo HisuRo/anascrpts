@@ -31,9 +31,9 @@ tt.raw.specgram(NFFT=inputs["NFFT"])
 
 # plot # EDIT HERE !!
 fig, ax = plt.subplots()
-cmap = ax.pcolormesh(tt.raw.spg.t, tt.raw.spg.f, 10*np.log10(tt.raw.spg.psd.T))
-cbar = fig.colorbar(cmap, ax=ax)
-cbar.set_label("PSD [dBV]")
+pcm = ax.pcolormesh(tt.raw.spg.t, tt.raw.spg.f, tt.raw.spg.psd.T)
+cbar = fig.colorbar(pcm, ax=ax)
+cbar.set_label("PSD [V$^2$/Hz]")
 ax.set_xlabel("Time [s]")
 ax.set_ylabel("Frequency [Hz]")
 fig.suptitle(f"{inputs['diagname']} {inputs['ch_i']} {inputs['ch_q']}\n"
@@ -43,9 +43,11 @@ fig.tight_layout()
 # output # EDIT HERE !!
 outputs = {
 	'fig': fig, 
+    'pcm' : pcm, 
+    'cbar' : cbar, 
     't' : tt.raw.spg.t, 
     'f' : tt.raw.spg.f, 
-    'psd' : tt.raw.spg.psd
+    'd' : tt.raw.spg.psd
 }
 
 # systematic output and close

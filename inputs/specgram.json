@@ -1,11 +1,11 @@
 {
 	"outdirname" : "174070_specgram", 
-	"output_filename": "magpro_tor_90_174070_specgram", 
+	"output_filename": "radm_ch17_174070_specgram", 
 	"sn" : 174070,
     "subsn" : 1, 
     "tstart" : 2.5, 
     "tend" : 8.5, 
-    "diagname" : "Magnetics_D", 
-    "ch" : 19, 
-    "NFFT" : 512
+    "diagname" : "RADMPXI", 
+    "ch" : 17, 
+    "NFFT" : 1024
 }

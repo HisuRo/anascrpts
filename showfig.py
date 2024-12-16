@@ -54,7 +54,7 @@ with open(filepath, "rb") as f:
         fig.subplots_adjust(left=0.3, right=0.95)  # スペースを確保
 
         # ラジオボタンでスケールを選択
-        ax_scale = fig.add_axes([0.05, 0.7, 0.10, 0.15], frameon=True)
+        ax_scale = fig.add_axes([0.05, 0.3, 0.10, 0.15], frameon=True)
         scale_selector = RadioButtons(ax_scale, labels=['Linear', 'Log'], active=0)
 
 

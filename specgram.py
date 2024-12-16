@@ -1,5 +1,6 @@
 from nasu import get_labcom, system
 import matplotlib.pyplot as plt # type: ignore
+from matplotlib.gridspec import GridSpec # type: ignore
 import numpy as np # type: ignore
 
 # initial setting and input
@@ -29,15 +30,26 @@ tt = get_labcom.timetrace(sn=inputs["sn"], subsn=inputs["subsn"], tstart=inputs[
 tt.raw.specgram(NFFT=inputs["NFFT"])
 
 # plot # EDIT HERE !!
-fig, ax = plt.subplots()
-pcm = ax.pcolormesh(tt.raw.spg.t, tt.raw.spg.f, tt.raw.spg.psd.T)
-cbar = fig.colorbar(pcm, ax=ax)
-cbar.set_label("PSD [V$^2$/Hz]")
-ax.set_xlabel("Time [s]")
-ax.set_ylabel("Frequency [Hz]")
+fig = plt.figure(figsize=(10, 6))
+gs = GridSpec(2, 2, width_ratios=[20, 2], height_ratios=[1, 4], hspace=0.1, wspace=0.1)
+
+ax1 = fig.add_subplot(gs[0, 0])
+ax1.plot(tt.raw.t_s, tt.raw.d, lw=0.1)
+ax1.set_ylabel("Signal [V]")
+
+ax2 = fig.add_subplot(gs[1, 0], sharex=ax1)
+pcm = ax2.pcolormesh(tt.raw.spg.t, tt.raw.spg.f, tt.raw.spg.psd.T)
+ax2.set_xlabel("Time [s]")
+ax2.set_ylabel("Frequency [Hz]")
+
+cax = fig.add_subplot(gs[1, 1])
+cbar = fig.colorbar(pcm, cax=cax, ax=ax2, label="PSD [V$^2$/Hz]")
+
+plt.setp(ax1.get_xticklabels(), visible=False)
+
 fig.suptitle(f"{inputs['diagname']} {inputs['ch']}\n"
 			f"{inputs['sn']}-{inputs['subsn']}")
-fig.tight_layout()
+# fig.tight_layout()
 
 # output # EDIT HERE !!
 outputs = {

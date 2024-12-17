@@ -25,10 +25,10 @@ now, logs = system.get_logs(wd)
 ece = get_eg.ece(sn=inputs["sn"], sub=inputs["sub"], tstart=inputs["tstart"], tend=inputs["tend"])
 
 # plot # EDIT HERE !!
-def plot_columns_with_subplots(time, data, group_size, labels):
+def plot_columns_with_subplots(time, data, group_size, labels, fignum):
 	num_cols = data.shape[1]
 	num_groups = (num_cols + group_size - 1) // group_size	
-	fig, axes = plt.subplots(num_groups, 1, figsize=(10, 2 * num_groups), sharex=True)	
+	fig, axes = plt.subplots(num_groups, 1, figsize=(10, 2 * num_groups), sharex=True, num=fignum)
 	if num_groups == 1:
 		axes = [axes]  # axesが1つのときはリスト化	
 	for i, ax in enumerate(axes):
@@ -55,9 +55,11 @@ elif inputs['diag_name'] == "RADM":
 
 
 labels = [f"ch{dobj.ADC_ch[i]:.0f} R={dobj.R[i]:.2f}" for i in range(len(dobj.ADC_ch))]
-fig = plot_columns_with_subplots(ece.t, dobj.Te, 10, labels)
+fignum = f"{inputs['output_filename']}_Te"
+fig = plot_columns_with_subplots(ece.t, dobj.Te, 10, labels, fignum)
 
-fig2, ax2 = plt.subplots()
+fignum2 = f"{inputs['output_filename']}_rho"
+fig2, ax2 = plt.subplots(num=fignum2)
 ax2.scatter(dobj.R, dobj.rho_vacuum, color='blue', s=5)
 for i, ch in enumerate(dobj.ADC_ch):
 	ax2.text(dobj.R[i], dobj.rho_vacuum[i], f"{int(ch)}", fontsize=12, ha='right', va='bottom', color='black')

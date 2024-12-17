@@ -1,9 +1,9 @@
 {
 	"outdirname" : "174070_eg", 
-	"output_filename": "ece_fast_radh_174070", 
+	"output_filename": "ece_fast_radm_174070", 
 	"sn" : 174070, 
     "sub" : 1, 
     "tstart" : 2.5, 
     "tend" : 8.5, 
-    "diag_name" : "RADH"
+    "diag_name" : "RADM"
 }

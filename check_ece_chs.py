@@ -57,6 +57,12 @@ elif inputs['diag_name'] == "RADM":
 labels = [f"ch{dobj.ADC_ch[i]:.0f} R={dobj.R[i]:.2f}" for i in range(len(dobj.ADC_ch))]
 fig = plot_columns_with_subplots(ece.t, dobj.Te, 10, labels)
 
+fig2, ax2 = plt.subplots()
+ax2.scatter(dobj.R, dobj.rho_vacuum, color='blue', s=5)
+for i, ch in enumerate(dobj.ADC_ch):
+	ax2.text(dobj.R[i], dobj.rho_vacuum[i], f"{int(ch)}", fontsize=12, ha='right', va='bottom', color='black')
+ax2.set_xlabel("R [m]")
+ax2.set_ylabel("$r_{\\rm{eff}}/a_{99}$ vacuum")
 
 # output # EDIT HERE !!
 outputs = {
@@ -64,7 +70,9 @@ outputs = {
 	't' : ece.t, 
 	'd' : dobj.Te, 
 	'ch': dobj.ADC_ch, 
-	'R' : dobj.R
+	'R' : dobj.R, 
+	'fig2': fig2, 
+	'rho': dobj.rho_vacuum
 }
 
 # systematic output and close

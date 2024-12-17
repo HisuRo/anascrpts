@@ -20,9 +20,9 @@ parser.add_argument('keyname', type=str, help='Keyname of figure')
 parser.add_argument('-c', '--cmap', action='store_true', help='for colormap plot. If specified, requires 3 additional keynames')
 
 # 追加のkeyname引数（-c/--cmap指定時のみ必要）
-parser.add_argument('keyname_pcm', type=str, help='Keyname of pcolormesh object')
-parser.add_argument('keyname_cbar', type=str, help='Keyname of colorbar object')
-parser.add_argument('keyname_data', type=str, help='Keyname of data')
+parser.add_argument('keyname_pcm', type=str, nargs="?", help='Keyname of pcolormesh object')
+parser.add_argument('keyname_cbar', type=str, nargs="?", help='Keyname of colorbar object')
+parser.add_argument('keyname_data', type=str, nargs="?", help='Keyname of data')
 
 args = parser.parse_args()
 

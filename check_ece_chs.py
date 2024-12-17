@@ -1,0 +1,73 @@
+from nasu import get_eg, system
+import matplotlib.pyplot as plt # type: ignore
+
+# initial setting and input
+config, wd = system.check_working_directory()
+input_filepath, tmpdir, outdir_base = system.define_input_tmp_output_directories(wd, config)
+inputs, outdir = system.load_input(input_filepath, outdir_base)
+now, logs = system.get_logs(wd)
+
+### input file template ### EDIT HERE !!
+""" 
+{
+	"outdirname" : "120329_spectra", 
+	"output_filename": "mmspc4_120329_spectra", 
+	"sn" : 174070, 
+    "sub" : 1, 
+    "tstart" : 2.5, 
+    "tend" : 8.5, 
+	"diag_name" : "radm"
+}
+"""
+#############
+
+# main # EDIT HERE !!
+ece = get_eg.ece(sn=inputs["sn"], sub=inputs["sub"], tstart=inputs["tstart"], tend=inputs["tend"])
+
+# plot # EDIT HERE !!
+def plot_columns_with_subplots(time, data, group_size, labels):
+	num_cols = data.shape[1]
+	num_groups = (num_cols + group_size - 1) // group_size	
+	fig, axes = plt.subplots(num_groups, 1, figsize=(10, 2 * num_groups), sharex=True)	
+	if num_groups == 1:
+		axes = [axes]  # axesが1つのときはリスト化	
+	for i, ax in enumerate(axes):
+		start_idx = i * group_size
+		end_idx = min((i + 1) * group_size, num_cols)
+		cols = range(start_idx, end_idx)
+		for col in cols:
+			ax.plot(time, data[:, col], label=f"{labels[col]}")
+		ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0., ncol=2)
+	ax.set_xlabel("Time [s]")
+	fig.suptitle(f"ece_fast {inputs['diag_name']}\n"
+				 f"{inputs['sn']}-{inputs['sub']}")
+	fig.tight_layout()
+
+	return fig
+
+
+if inputs["diag_name"] == "RADH": 
+	dobj = ece.radh
+elif inputs["diag_name"] == "RADL":
+	dobj = ece.radl
+elif inputs['diag_name'] == "RADM":
+	dobj = ece.radm
+
+
+labels = [f"ch{dobj.ADC_ch[i]:.0f} R={dobj.R[i]:.2f}" for i in range(len(dobj.ADC_ch))]
+fig = plot_columns_with_subplots(ece.t, dobj.Te, 10, labels)
+
+
+# output # EDIT HERE !!
+outputs = {
+	'fig': fig, 
+	't' : ece.t, 
+	'd' : dobj.Te, 
+	'ch': dobj.ADC_ch, 
+	'R' : dobj.R
+}
+
+# systematic output and close
+output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)
+system.output_fig(fig, outdir, inputs, output_filepath, now)
+print("DONE !!")

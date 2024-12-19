@@ -2,7 +2,7 @@ from nasu import get_eg, system
 import matplotlib.pyplot as plt # type: ignore
 
 def main():
-	
+
 	# initial setting and input
 	config, wd = system.check_working_directory()
 	input_filepath, tmpdir, outdir_base = system.define_input_tmp_output_directories(wd, config)

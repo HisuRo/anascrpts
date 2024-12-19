@@ -2,7 +2,7 @@
 
 import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
-from nasu import system
+from nasu import system, calc
 
 def main():
 	# initial setting and input
@@ -16,29 +16,35 @@ def main():
 	""" template 
 	{
 		"outdirname" : "120329_spectra", 
-		"output_filename" : "mmspc4_120329_spectra_powerlaw",  
-		"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_spectra.pkl", 
-		"" : 
+		"output_filename" : "mmspc4_120329_LPFed_amplitude",  
+		"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_spectra_envelope_of_filtered.pkl", 
+		"fpass" : 1e3, 
+		"fstop" : 10e3, 
+		"data_label" : "filtered amplitude [V]"
 	}
 	"""
 	#############
 
 	# main EDIT HERE !!
+	d_filt = calc.lowpass(data["d"], data["Fs"], inputs["fpass"], inputs["fstop"])
 
 	# plot EDIT HERE !!
 	fig, ax = plt.subplots()
-	ax.plot()
-	ax.set_xscale("")
-	ax.set_yscale("")
-	ax.set_xlabel("")
-	ax.set_ylabel("")
-	ax.legend()
-	fig.suptitle("")
+	ax.plot(data["t"], d_filt)
+	# ax.set_xscale("")
+	# ax.set_yscale("")
+	ax.set_xlabel("Time [s]")
+	ax.set_ylabel(f"{inputs['data_label']}")
+	# ax.legend()
+	fig.suptitle(f"{inputs['output_filename']}")
 	fig.tight_layout()
 
 	# output EDIT HERE !!
 	outputs = {
-		"fig": fig
+		"fig": fig, 
+		"t" : data["t"], 
+		"d" : d_filt, 
+		"Fs" : data["Fs"]
 	}
 
 	# systematic output and close

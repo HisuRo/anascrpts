@@ -10,7 +10,7 @@ def main():
     script_path = os.path.abspath(__file__)
     input_filepath, tmpdir, outdir_base = system.define_input_tmp_output_directories(script_path, config)
     inputs, outdir = system.load_input(input_filepath, outdir_base)
-    now, logs = system.get_logs(wd)
+    now, logs = system.get_logs(wd, script_path)
 
     ### input file template ### EDIT HERE !!
     """ 

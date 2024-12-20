@@ -7,9 +7,10 @@ from nasu import system, get_d3d
 def main():
 	# initial setting and input
 	config, wd = system.check_working_directory()
+	script_path = os.path.abspath(__file__)
 	input_filepath, tmpdir, outdir_base = system.define_input_tmp_output_directories(wd, config)
 	inputs, outdir = system.load_input(input_filepath, outdir_base)
-	now, logs = system.get_logs(wd)
+	now, logs = system.get_logs(wd, script_path)
 	data_highk = system.load_pickle_data(inputs, "input_datpath_highk")
 	data_lowk = system.load_pickle_data(inputs, "input_datpath_lowk")
 

@@ -1,13 +1,15 @@
 from nasu import get_d3d, system
 import matplotlib.pyplot as plt # type: ignore
+import os
 
 def main():
 
 	# initial setting and input
 	config, wd = system.check_working_directory()
+	script_path = os.path.abspath(__file__)
 	input_filepath, tmpdir, outdir_base = system.define_input_tmp_output_directories(wd, config)
 	inputs, outdir = system.load_input(input_filepath, outdir_base)
-	now, logs = system.get_logs(wd)
+	now, logs = system.get_logs(wd, script_path)
 
 	### input file template ### EDIT HERE !!
 	""" 

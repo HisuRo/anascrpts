@@ -2,5 +2,6 @@
 	"wd" : "C:/pythonProject/analysis_scripts",
 	"tmp_dir" : "C:/python_temp", 
 	"base_output_dir" : "C:/python_data", 
-	"inputs_dir" : "inputs"
+	"inputs_dir" : "inputs", 
+	"auto_output_dir" : "auto"
 }

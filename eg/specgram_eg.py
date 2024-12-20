@@ -6,11 +6,8 @@ import os
 
 def main():
     # initial setting and input
-    config, wd = system.check_working_directory()
     script_path = os.path.abspath(__file__)
-    input_filepath, tmpdir, outdir_base = system.define_input_tmp_output_directories(script_path, config)
-    inputs, outdir = system.load_input(input_filepath, outdir_base)
-    now, logs = system.get_logs(wd, script_path)
+    inputs, tmpdir, outdir, logs, now = system.initial_setting(script_path=script_path)
 
     ### input file template ### EDIT HERE !!
     """ 
@@ -68,7 +65,7 @@ def main():
 
     # systematic output and close
     output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)
-    system.output_fig(fig, outdir, inputs, output_filepath, now)
+    system.output_fig(fig, outdir, inputs, output_filepath, now, suffix="")
     print("DONE !!")
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ from nasu import get_d3d, system, proc
 import matplotlib.pyplot as plt # type: ignore
 import numpy as np # type: ignore
 from scipy.signal import find_peaks # type: ignore
-
+import os
 
 def main():
 	# initial setting and input

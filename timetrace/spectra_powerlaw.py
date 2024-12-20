@@ -3,6 +3,7 @@
 import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 from nasu import system
+import os
 
 def main():
 	# initial setting and input

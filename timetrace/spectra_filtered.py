@@ -1,5 +1,6 @@
 from nasu import get_d3d, system, calc
 import matplotlib.pyplot as plt # type: ignore
+import os
 
 def main():
 	# initial setting and input

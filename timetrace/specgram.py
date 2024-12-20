@@ -2,6 +2,7 @@ from nasu import get_labcom, system
 import matplotlib.pyplot as plt # type: ignore
 from matplotlib.gridspec import GridSpec # type: ignore
 import numpy as np # type: ignore
+import os
 
 def main():
     # initial setting and input

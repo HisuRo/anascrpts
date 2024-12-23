@@ -1,11 +1,14 @@
 {
-	"outdirname" : "120329_spectra_sawtooth", 
-	"output_filename": "mmspc4_120329_spectra_after_sawteeth_from2900-3200ms_NFFT512", 
-	"pointname" : "mmspc4", 
-	"shot" : 120329, 
-	"idx_startdomain" : 14, 
-	"N_domain" : 2, 
-	"tstart_list" : [2.92,2.9535,2.983,3.005,3.035,3.0615,3.083,3.103,3.125,3.148,3.1685,3.186], 
-	"tend_list" : [2.925,2.9585,2.988,3.01,3.04,3.0665,3.088,3.108,3.13,3.153,3.1735,3.191], 
-	"NFFT" : 512
+	"outdirname" : "24c_1125_ETG/spectra", 
+	"output_filename": "highk_ch3_184508_5-5.18s_NFFT4096", 
+	"sn" : 184508, 
+	"subsn" : 1, 
+	"diagname" : "MWRM-COMB2",
+	"ch_i" : 19, 
+	"ch_q" : 20, 
+	"tstart_retrieve" : 4.5, 
+	"tend_retrieve" : 5.5, 
+	"tstart_list" : [5.0, 5.057553, 5.157552], 
+	"tend_list" : [5.055554, 5.155554, 5.18], 
+	"NFFT" : 4096
 }

@@ -1,4 +1,4 @@
-from nasu import get_d3d, system
+from nasu import get_labcom, system
 import matplotlib.pyplot as plt # type: ignore
 import numpy as np # type: ignore
 import os
@@ -14,26 +14,29 @@ def main():
 	### input file template ### EDIT HERE !!
 	""" 
 	{
-		"outdirname" : "120329_spectra", 
-		"output_filename": "mmspc4_120329_spectra_after_sawteeth_from2000-2300ms", 
-		"pointname" : "mmspc4", 
-		"shot" : 120329, 
-		"idx_startdomain" : 9, 
-		"N_domain" : 3, 
-		"tstart_list" : [2.0205, 2.0495, 2.0715, 2.0905, 2.1255, 2.156, 2.179, 2.198, 2.218, 2.243, 2.265, 2.285], 
-		"tend_list" : [2.0255, 2.0545, 2.0765, 2.0955, 2.1305, 2.161, 2.184, 2.203, 2.223, 2.248, 2.27, 2.29], 
-		"NFFT" : 512
+		"outdirname" : "24c_1125_ETG/spectra", 
+		"output_filename": "highk_ch3_184508_5-5.18s_NFFT1024", 
+		"sn" : 184508, 
+		"subsn" : 1, 
+		"diagname" : "MWRM-COMB2",
+		"ch_i" : 19, 
+		"ch_q" : 20, 
+		"tstart_retrieve" : 4.5, 
+		"tend_retrieve" : 5.5, 
+		"tstart_list" : [5.0, 5.057553, 5.157552], 
+		"tend_list" : [5.055554, 5.155554, 5.18], 
+		"NFFT" : 1024
 	}
 	"""
 	#############
 
 	# main # EDIT HERE !!
 	N_sp = len(inputs["tstart_list"])
-	tt = get_d3d.timetrace_multidomains(inputs['pointname'], inputs["shot"], inputs["idx_startdomain"], inputs["N_domain"])
+	tt = get_labcom.timetrace_iq(inputs['sn'], inputs["subsn"], inputs["tstart_retrieve"], inputs["tend_retrieve"], inputs["diagname"], inputs["ch_i"], inputs["ch_q"])
 	psds = [0]*N_sp
 
 	for i in range(N_sp):
-		sp = get_d3d.raw(tt).spectrum(inputs["tstart_list"][i], inputs["tend_list"][i], NFFT=inputs["NFFT"])
+		sp = tt.raw.spectrum(inputs["tstart_list"][i], inputs["tend_list"][i], NFFT=inputs["NFFT"])
 		psds[i] = sp.psd
 	psds = np.array(psds)
 	psd_avg = np.average(psds, axis=0)
@@ -45,12 +48,12 @@ def main():
 		ax.plot(f, psds[i], ".", label=f"{inputs['tstart_list'][i]} - {inputs['tend_list'][i]} s")
 	ax.plot(f, psd_avg, label=f"averaged", c="black")
 	ax.set_xlabel("Frequency [Hz]")
-	ax.set_ylabel("PSD [V^2/Hz]")
+	ax.set_ylabel("PSD [/Hz]")
 	ax.set_xscale("log")
 	ax.set_yscale("log")
 	ax.legend()
-	fig.suptitle(f"{inputs['pointname']} {inputs['shot']}\n"
-				f"{inputs['output_filename']}")
+	fig.suptitle(f"{inputs['diagname']} {inputs['ch_i']} {inputs['ch_q']}\n"
+				f"{inputs['sn']}-{inputs['subsn']}")
 	fig.tight_layout()
 
 	# output # EDIT HERE !!

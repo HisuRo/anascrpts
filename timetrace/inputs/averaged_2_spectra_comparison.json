@@ -1,9 +1,0 @@
-{
-	"outdirname" : "C:/python_data/24c_1125_ETG/spectra", 
-	"output_filename" : "highk_ch3_184516_4.6-4.68s_184508_5-5.18s_NFFT4096",  
-	"input_datpath1" : "C:/python_data/24c_1125_ETG/spectra/highk_ch3_184516_4.6-4.68s_NFFT4096.pkl", 
-	"input_datpath2" : "C:/python_data/24c_1125_ETG/spectra/highk_ch3_184508_5-5.18s_NFFT4096.pkl", 
-	"label1" : "low grad Te", 
-	"label2" : "high grad Te", 
-	"xscale" : "linear"
-}

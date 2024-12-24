@@ -11,8 +11,8 @@ def main():
 	script_path = os.path.abspath(__file__)
 	inputs, tmpdir, outdir, logs, now = system.initial_setting(script_path=script_path)
 	
-	
 	data = system.load_pickle_data(inputs)
+	# data_list = system.load_multiple_pickle_data(inputs, "input_datpaths")  # for multiple input paths
 
 	### input ### EDIT HERE !!!
 	""" template 

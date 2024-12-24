@@ -17,7 +17,7 @@ def main():
     # ファイルを開いてデータを読み込み、指定されたキーのデータを表示
     with open(filepath, "rb") as f:
         data = pickle.load(f)
-        pprint.pprint(data, width=50, sort_dicts=False)
+        pprint.pprint(data, sort_dicts=False)
 
 
 if __name__ == "__main__":

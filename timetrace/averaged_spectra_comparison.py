@@ -8,6 +8,7 @@ def main():
 	
 	script_path = os.path.abspath(__file__)
 	inputs, tmpdir, outdir, logs, now = system.initial_setting(script_path=script_path)
+	data_list = system.load_multiple_pickle_data(inputs, "input_datpaths")
 
 	### input ### EDIT HERE !!!
 	""" template 
@@ -29,7 +30,7 @@ def main():
 
 	Nsp = len(inputs["input_datpaths"])
 	psds_list = [0] * Nsp
-	data_list = system.load_multiple_pickle_data(inputs, "input_datpaths")
+	
 	for i in range(Nsp):
 
 		data = data_list[i]

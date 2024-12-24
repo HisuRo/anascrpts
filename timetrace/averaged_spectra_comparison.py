@@ -1,6 +1,6 @@
 import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
-from nasu import system
+from nasu import system, calc
 import os
 
 def main():
@@ -18,7 +18,8 @@ def main():
 		"input_datpaths" : ["C:/python_data/24c_1125_ETG/spectra/highk_ch3_184516_4.6-4.68s_NFFT4096.pkl", 
 							"C:/python_data/24c_1125_ETG/spectra/highk_ch3_184508_5-5.18s_NFFT4096.pkl"], 
 		"labels" : ["low grad Te", "high grad Te"], 
-		"data_unit" : "V"
+		"data_unit" : "V", 
+		"freq_ma_length" : 10
 	}
 	"""
 	#############
@@ -29,16 +30,21 @@ def main():
 	fig, ax = plt.subplots()
 
 	Nsp = len(inputs["input_datpaths"])
-	psds_list = [0] * Nsp
+	psds = [0] * Nsp
+	ma_psds = [0] * Nsp
 	
 	for i in range(Nsp):
 
 		data = data_list[i]
 		f = data["f"]
-		psds_list[i] = data["psd_avg"]
-		ax.plot(f, psds_list[i], label=f"{inputs['labels'][i]}")
+		psd = data["psd_avg"]
+		ma_psd = calc.moving_average(psd, window_size=inputs["freq_ma_length"], mode="same")
+		psds[i] = psd
+		ma_psds[i] = ma_psd
+		ax.plot(f, ma_psd, label=f"{inputs['labels'][i]}")
 		ax.set_yscale("log")
 		ax.set_ylabel(f"PSD [{inputs['data_unit']}$^2$/Hz]")
+		ax.set_xlabel("Frequency [Hz]")
 		ax.legend()
 
 	fig.suptitle(f"{inputs['output_filename']}")
@@ -48,7 +54,8 @@ def main():
 	outputs = {
 		"fig": fig, 
 		"f" : f, 
-		"psd" : psds_list
+		"psds" : psds, 
+		"ma_psds" : ma_psds
 	}
 
 	# systematic output and close

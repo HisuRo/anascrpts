@@ -1,9 +1,9 @@
 {
-	"outdirname" : "120329_spectra_sawtooth", 
-	"output_filename" : "mmspc3_120329_spectra_comparison_before_after_sawteeth_from2000-2300ms",  
-	"input_datpath1" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc3_120329_spectra_before_sawteeth_from2000-2300ms.pkl", 
-	"input_datpath2" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra_sawtooth/mmspc3_120329_spectra_after_sawteeth_from2000-2300ms.pkl", 
-	"label1" : "before", 
-	"label2" : "after", 
+	"outdirname" : "C:/python_data/24c_1125_ETG/spectra", 
+	"output_filename" : "highk_ch3_184516_4.6-4.68s_184508_5-5.18s_NFFT4096",  
+	"input_datpath1" : "C:/python_data/24c_1125_ETG/spectra/highk_ch3_184516_4.6-4.68s_NFFT4096.pkl", 
+	"input_datpath2" : "C:/python_data/24c_1125_ETG/spectra/highk_ch3_184508_5-5.18s_NFFT4096.pkl", 
+	"label1" : "low grad Te", 
+	"label2" : "high grad Te", 
 	"xscale" : "linear"
 }

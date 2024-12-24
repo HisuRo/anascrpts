@@ -1,14 +1,14 @@
 {
 	"outdirname" : "24c_1125_ETG/spectra", 
-	"output_filename": "highk_ch3_184508_5-5.18s_NFFT4096", 
-	"sn" : 184508, 
+	"output_filename": "highk_ch3_184516_4.6-4.68s_NFFT4096", 
+	"sn" : 184516, 
 	"subsn" : 1, 
 	"diagname" : "MWRM-COMB2",
 	"ch_i" : 19, 
 	"ch_q" : 20, 
 	"tstart_retrieve" : 4.5, 
-	"tend_retrieve" : 5.5, 
-	"tstart_list" : [5.0, 5.057553, 5.157552], 
-	"tend_list" : [5.055554, 5.155554, 5.18], 
+	"tend_retrieve" : 5.0, 
+	"tstart_list" : [4.6, 4.65348], 
+	"tend_list" : [4.655479, 4.68], 
 	"NFFT" : 4096
 }

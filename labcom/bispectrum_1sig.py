@@ -42,7 +42,7 @@ def main():
 	figtitle = f"#{inputs['sn']}-{inputs['subsn']} {inputs['tstart']}-{inputs['tend']}s\n" \
 				f"{inputs['diagname']} {inputs['ch_i']} {inputs['ch_q']}"
 	fig1, ax1 = plt.subplots()
-	norm = Normalize(vmin=noiselevel, vmax=noiselevel*5)
+	norm = Normalize(vmin=noiselevel, vmax=noiselevel*4)
 	pcm1 = ax1.pcolormesh(bs.f1, bs.f2, bs.bicohsq, norm=norm, cmap="viridis")
 	cbar1 = fig1.colorbar(pcm1, ax=ax1, label="bicoherence^2")
 	ax1.set_xlabel("Frequency [Hz]")
@@ -75,7 +75,8 @@ def main():
 		'fig2': fig2, 
 		'pcm2': pcm2, 
 		'cbar2': cbar2, 
-		'd2': bs.biphase
+		'd2': bs.biphase, 
+		'NEns': bs.NEns
 	}
 
 	# systematic output and close

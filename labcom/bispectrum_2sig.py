@@ -47,7 +47,7 @@ def main():
 	noiselevel = 4. / bs.NEns
 
 	# plot # EDIT HERE !!
-	figtitle = f"#{inputs['sn']}-{inputs['subsn']} {inputs['tstart']}-{inputs['tend']}s" \
+	figtitle = f"#{inputs['sn']}-{inputs['subsn']} {inputs['tstart']}-{inputs['tend']}s\n" \
 				f"mode={inputs['mode']}\n" \
 				f"1: {inputs['diagname1']} {inputs['ch1_i']} {inputs['ch1_q']}\n" \
 				f"2: {inputs['diagname2']} {inputs['ch2_i']} {inputs['ch2_q']}"

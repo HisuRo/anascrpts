@@ -13,7 +13,7 @@
     "ch2_q" : 2, 
     "tstart" : 4.6335, 
     "tend" : 4.7, 
-    "NFFT2" : 4196, 
+    "NFFT2" : 1024, 
     "ovr" : 0, 
     "window" : "hann", 
     "mode" : "221", 

@@ -37,43 +37,39 @@ def main():
         keyname_cbar = args.keyname_cbar
         keyname_data = args.keyname_data
         if not (args.keyname_pcm and args.keyname_cbar and args.keyname_data):
-            print("Error: --cmap requires keyname_pcm, keyname_cbar, and keyname_data to be specified.")
-            sys.exit(1)
-
+            raise Exception("Error: --cmap requires keyname_pcm, keyname_cbar, and keyname_data to be specified.")
+        
     # ファイルを開いてデータを読み込み、指定されたキーのデータを表示
     with open(filepath, "rb") as f:
         data = pickle.load(f)
-        fig = data[keyname]
-        if iscmap:
-            pcm = data[keyname_pcm]
-            cbar = data[keyname_cbar]
-            d = data[keyname_data]
-            # 初期設定
-            current_norm = Normalize(vmin=d.min(), vmax=d.max())  # 初期は線形
+    fig = data[keyname]
+    if iscmap:
+        pcm = data[keyname_pcm]
+        cbar = data[keyname_cbar]
+        d = data[keyname_data]
 
-            # 描画のセットアップ
-            fig.subplots_adjust(left=0.3, right=0.95)  # スペースを確保
+        # 描画のセットアップ
+        fig.subplots_adjust(left=0.3, right=0.95)  # スペースを確保
 
-            # ラジオボタンでスケールを選択
-            ax_scale = fig.add_axes([0.05, 0.3, 0.10, 0.15], frameon=True)
-            scale_selector = RadioButtons(ax_scale, labels=['Linear', 'Log'], active=0)
+        # ラジオボタンでスケールを選択
+        ax_scale = fig.add_axes([0.05, 0.3, 0.10, 0.15], frameon=True)
+        scale_selector = RadioButtons(ax_scale, labels=['Linear', 'Log'], active=0)
 
+        def update_scale(label):
+            """スケールを変更してプロットを更新"""
+            global current_norm
+            if label == 'Linear':
+                current_norm = Normalize(vmin=d.min(), vmax=d.max())
+            elif label == 'Log':
+                current_norm = LogNorm(vmin=d.min(), vmax=d.max())
 
-            def update_scale(label):
-                """スケールを変更してプロットを更新"""
-                global current_norm
-                if label == 'Linear':
-                    current_norm = Normalize(vmin=d.min(), vmax=d.max())
-                elif label == 'Log':
-                    current_norm = LogNorm(vmin=d.min(), vmax=d.max())
+            pcm.set_norm(current_norm)
+            cbar.update_normal(pcm)  # カラーバーを更新
+            fig.canvas.draw_idle()
 
-                pcm.set_norm(current_norm)
-                cbar.update_normal(pcm)  # カラーバーを更新
-                fig.canvas.draw_idle()
-
-            scale_selector.on_clicked(update_scale)
-        
-        plt.show()
+        scale_selector.on_clicked(update_scale)
+    
+    plt.show()
 
 if __name__ == "__main__":
 	main()

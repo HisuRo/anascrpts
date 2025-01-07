@@ -16,17 +16,17 @@ def main():
 	""" 
 	{
 		"outdirname" : "174070_bispectrum", 
-		"output_filename": "highk_ch3_4.6335-4.7s_174070", 
+		"output_filename": "highk_ch3_4.6335-4.8s_174070", 
 		"sn" : 174070, 
 		"subsn" : 1, 
 		"tstart_retrieve" : 4.0, 
 		"tend_retrieve" : 5.0, 
-		"diagname" : "MWRM-COMB", 
-		"ch_i" : 13, 
-		"ch_q" : 14, 
-		"tstart" : 4.6335, 
-		"tend" : 4.7, 
-		"NFFT" : 4096,
+		"diagname" : "MWRM-PXI", 
+		"ch_i" : 1, 
+		"ch_q" : 2, 
+		"tstart_list" : [4.6335, 4.7335], 
+		"tend_list" : [4.7314, 4.8], 
+		"NFFT" : 512,
 		"ovr" : 0.5, 
 		"window" : "hann"
 	}
@@ -35,11 +35,13 @@ def main():
 
 	# main # EDIT HERE !!
 	tt = get_labcom.timetrace_iq(inputs["sn"], inputs["subsn"], inputs["tstart_retrieve"], inputs["tend_retrieve"], inputs["diagname"], inputs["ch_i"], inputs["ch_q"])
-	bs = tt.raw.bispectrum(inputs["tstart"], inputs["tend"], inputs["NFFT"], inputs["ovr"], inputs["window"])
+	bs = tt.raw.bispectrum_multiwindows(inputs["tstart_list"], inputs["tend_list"], inputs["NFFT"], inputs["ovr"], inputs["window"])
 	noiselevel = 4. / bs.NEns
 
 	# plot # EDIT HERE !!
-	figtitle = f"#{inputs['sn']}-{inputs['subsn']} {inputs['tstart']}-{inputs['tend']}s\n" \
+	trange_str = ", ".join([f"{inputs['tstart_list'][i]}-{inputs['tend_list'][i]}s" for i in range(len(inputs["tstart_list"]))])
+	figtitle = f"#{inputs['sn']}-{inputs['subsn']}\n" \
+				f"{trange_str}\n" \
 				f"{inputs['diagname']} {inputs['ch_i']} {inputs['ch_q']}"
 	fig1, ax1 = plt.subplots()
 	norm = Normalize(vmin=noiselevel, vmax=noiselevel*4)

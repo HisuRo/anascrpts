@@ -1,7 +1,7 @@
 {
     "outdirname" : "24c_1125_ETG/spectra", 
-    "output_filename" : "highk_ch3_24c_1125_ETG_6conditions_NFFT4096_ma11_intratio_200kHz_50kHz",  
+    "output_filename" : "highk_ch3_24c_1125_ETG_6conditions_NFFT4096_ma11_intratio_400kHz_50kHz",  
     "input_datpath" : "C:/python_data/24c_1125_ETG/spectra/highk_ch3_24c_1125_ETG_6conditions_NFFT4096_ma11.pkl", 
     "lower_freq" : 50e3, 
-    "higher_freq" : 200e3
+    "higher_freq" : 400e3
 }

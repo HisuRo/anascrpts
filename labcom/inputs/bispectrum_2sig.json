@@ -1,0 +1,21 @@
+{
+    "outdirname" : "174070_bispectrum", 
+    "output_filename": "lowk_ch8_highk_ch3_221_4.6335-4.7s_174070", 
+    "sn" : 174070, 
+    "subsn" : 1, 
+    "tstart_retrieve" : 4.0, 
+    "tend_retrieve" : 5.0, 
+    "diagname1" : "MWRM-COMB", 
+    "ch1_i" : 13, 
+    "ch1_q" : 14, 
+    "diagname2" : "MWRM-PXI", 
+    "ch2_i" : 1, 
+    "ch2_q" : 2, 
+    "tstart" : 4.6335, 
+    "tend" : 4.7, 
+    "NFFT2" : 4196, 
+    "ovr" : 0, 
+    "window" : "hann", 
+    "mode" : "221", 
+    "interpolate" : false
+}

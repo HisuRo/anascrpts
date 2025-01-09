@@ -28,14 +28,17 @@ def main():
 		"tend_list" : [4.7314, 4.8], 
 		"NFFT" : 512,
 		"ovr" : 0.5, 
-		"window" : "hann"
+		"window" : "hamming", 
+		"fmin" : 0
 	}
 	"""
 	#############
 
 	# main # EDIT HERE !!
+	if inputs["fmin"] == 0:
+		inputs["fmin"] = None
 	tt = get_labcom.timetrace_iq(inputs["sn"], inputs["subsn"], inputs["tstart_retrieve"], inputs["tend_retrieve"], inputs["diagname"], inputs["ch_i"], inputs["ch_q"])
-	bs = tt.raw.bispectrum_multiwindows(inputs["tstart_list"], inputs["tend_list"], inputs["NFFT"], inputs["ovr"], inputs["window"])
+	bs = tt.raw.bispectrum_multiwindows(inputs["tstart_list"], inputs["tend_list"], inputs["NFFT"], inputs["ovr"], inputs["window"], flim=inputs['fmin'])
 	noiselevel = 4. / bs.NEns
 
 	# plot # EDIT HERE !!

@@ -76,11 +76,14 @@ def main():
 		'cbar1': cbar1, 
 		'fx': bs.f1, 
 		'fy': bs.f2, 
+		'fz': bs.f3, 
 		'd1': bs.bicohsq, 
+		'e1': bs.bicohsq_err,
 		'fig2': fig2, 
 		'pcm2': pcm2, 
 		'cbar2': cbar2, 
 		'd2': bs.biphase, 
+		'e2': bs.biphase_err, 
 		'NEns': bs.NEns
 	}
 

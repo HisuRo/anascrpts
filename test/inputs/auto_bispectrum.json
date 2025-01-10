@@ -1,0 +1,15 @@
+{
+    "outdirname" : "test//auto_bispectrum", 
+    "output_filename": "auto_bispectrum", 
+    "f1" : 200e3, 
+    "f2" : 10e3,
+    "th1" : 0,
+    "th2" : 0,
+    "dth" : 0.7853981633974483,
+    "dt" : 1e-6,
+    "NFFT" : 256,
+    "NEns" : 100,
+    "NOV" : 128,
+    "sigma" : 0.1,
+    "isCoupling" : true
+}

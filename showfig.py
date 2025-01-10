@@ -15,12 +15,12 @@ def main():
 
     # 必須の引数
     parser.add_argument('input', type=str, help='Input file path')
-    parser.add_argument('keyname', type=str, help='Keyname of figure')
 
     # オプション引数 -c または --cmap
     parser.add_argument('-c', '--cmap', action='store_true', help='for colormap plot. If specified, requires 3 additional keynames')
 
     # 追加のkeyname引数（-c/--cmap指定時のみ必要）
+    parser.add_argument('keyname', type=str, nargs="?", help='Keyname of figure')
     parser.add_argument('keyname_pcm', type=str, nargs="?", help='Keyname of pcolormesh object')
     parser.add_argument('keyname_cbar', type=str, nargs="?", help='Keyname of colorbar object')
     parser.add_argument('keyname_data', type=str, nargs="?", help='Keyname of data')
@@ -42,8 +42,8 @@ def main():
     # ファイルを開いてデータを読み込み、指定されたキーのデータを表示
     with open(filepath, "rb") as f:
         data = pickle.load(f)
-    fig = data[keyname]
     if iscmap:
+        fig = data[keyname]
         pcm = data[keyname_pcm]
         cbar = data[keyname_cbar]
         d = data[keyname_data]

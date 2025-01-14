@@ -1,0 +1,12 @@
+{
+	"outdirname" : "174070_specgram", 
+	"output_filename": "lowk_ch7_174070_spectrogram", 
+	"sn" : 174070,
+    "subsn" : 1, 
+    "tstart" : 2.5, 
+    "tend" : 8.5, 
+    "diagname" : "MWRM-COMB", 
+    "ch_i" : 11, 
+    "ch_q" : 12, 
+    "NFFT" : 8192
+}

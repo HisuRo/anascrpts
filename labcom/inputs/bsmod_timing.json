@@ -1,0 +1,12 @@
+{
+    "outdirname" : "24c_1125_ETG/bsmod", 
+    "output_filename": "bsmod_timing_184514_4-5.5s", 
+    "sn" : 184514, 
+    "subsn" : 1, 
+    "tstart" : 4.0, 
+    "tend" : 5.5, 
+    "diagname" : "MWRM-PXI", 
+    "ch" : 4, 
+    "rate_threshold" : 10000, 
+    "t_process_width" : 3e-4
+}

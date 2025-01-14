@@ -1,0 +1,10 @@
+{
+	"outdirname" : "120329_timetraces", 
+	"output_filename": "ece27_drop_detection", 
+	"pointname" : "ece27", 
+	"shot" : 120329,
+	"tstart" : 2.0, 
+	"tend" : 3.2, 
+	"rate_threshold" : 100, 
+	"process_width" : 0.010
+}

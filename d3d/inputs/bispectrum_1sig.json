@@ -1,6 +1,6 @@
 {
 	"outdirname" : "120329_bispectrum", 
-	"output_filename" : "mmspc4_120329_bispectrum_after_sawteeth_from2000-2300ms_NFFT128", 
+	"output_filename" : "mmspc4_120329_bispectrum_after_sawteeth_5ms_from2000-2300ms_NFFT128", 
 	"pointname" : "mmspc4", 
 	"shot" : 120329, 
 	"idx_startdomain" : 9, 

@@ -1,12 +1,12 @@
 {
     "outdirname" : "174070_specgram", 
-    "output_filename": "fir_nel_fast_3849_174070_spectrogram", 
+    "output_filename": "fir_nel_fast_4029_174070_spectrogram", 
     "sn" : 174070,
     "subsn" : 1, 
     "tstart" : 4, 
     "tend" : 5, 
     "diagname" : "fir_nel_fast", 
-    "name" : "nL(3849)", 
+    "name" : "nL(4029)", 
     "dim" : 0, 
     "other_idxs" : [0],
     "NFFT" : 1024

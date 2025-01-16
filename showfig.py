@@ -3,7 +3,8 @@ import sys
 import argparse
 
 import matplotlib # type: ignore
-matplotlib.use("Qt5Agg")
+backend = "Qt5Agg" # "Qt5Agg" などに変更することでバックエンドを変更可能
+matplotlib.use(backend)
 import matplotlib.pyplot as plt # type: ignore
 
 from matplotlib.colors import Normalize, LogNorm  # type: ignore

@@ -1,13 +1,13 @@
 {
 	"outdirname" : "120329_bispectrum", 
-	"output_filename" : "mmspc4_120329_bispectrum_before_sawteeth_5ms_from2000-2300ms_NFFT1024_hamming", 
+	"output_filename" : "mmspc4_120329_bispectrum_after_sawteeth_1ms_from2000-2300ms_NFFT512_hamming", 
 	"pointname" : "mmspc4", 
 	"shot" : 120329, 
 	"idx_startdomain" : 9, 
 	"N_domains" : 3, 
-	"tstart_list" : [2.0155,2.0445,2.0665,2.0855,2.1205,2.151,2.174,2.193,2.213,2.238,2.26,2.28], 
-	"tend_list" : [2.0205,2.0495,2.0715,2.0905,2.1255,2.156,2.179,2.198,2.218,2.243,2.265,2.285], 
-	"NFFT" : 1024,
+	"tstart_list" : [2.0205,2.0495,2.0715,2.0905,2.1255,2.156,2.179,2.198,2.218,2.243,2.265,2.285], 
+	"tend_list" : [2.0215,2.0505,2.0725,2.0915,2.1265,2.157,2.18,2.199,2.219,2.244,2.266,2.286], 
+	"NFFT" : 512,
 	"ovr" : 0.5, 
 	"window" : "hamming", 
 	"flim" : 2e6

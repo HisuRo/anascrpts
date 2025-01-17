@@ -1,0 +1,13 @@
+	{
+		"outdirname" : "test", 
+		"output_filename": "test", 
+		"sn" : 184509, 
+		"subsn" : 1,
+		"d_colnm" : "Te",
+		"e_colnm" : "dTe",
+		"tstart" : 4.25,
+		"tend" : 4.75,
+		"Rat" : 4.0,
+		"dR" : 0.106,
+		"polyN" : 10
+	}

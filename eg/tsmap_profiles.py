@@ -38,7 +38,7 @@ def main():
 
 		# plot # EDIT HERE !!
 		fig, ax = plt.subplots(num="test")
-		ax.errorbar(tR_ts.tR.twin.rho[i], tR_ts.tR.twin.d[i], tR_ts.tR.twin.e[i], marker=".", ecolor="grey", color="black", label=inputs['d_colnm'])
+		ax.errorbar(tR_ts.tR.twin.rho[i], tR_ts.tR.twin.d[i], tR_ts.tR.twin.e[i], fmt=".", ecolor="grey", color="black", label=inputs['d_colnm'])
 		ax.plot(tR_tsfit.tR.twin.rho[i], tR_tsfit.tR.twin.d[i], color="blue", label=inputs['fit_colnm'])
 		ax.fill_between(tR_tsfit.tR.twin.rho[i], tR_tsfit.tR.twin.d[i] + tR_tsfit.tR.twin.e[i], tR_tsfit.tR.twin.d[i] - tR_tsfit.tR.twin.e[i], color="blue", alpha=0.3)
 		ax.plot(tR_ts.tR.twin.pfit.rho[i], tR_ts.tR.twin.pfit.d[i], color="green", label=f"{inputs['d_colnm']} polyfit deg={inputs['polyN']}")

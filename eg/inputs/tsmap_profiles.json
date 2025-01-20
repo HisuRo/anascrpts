@@ -9,5 +9,5 @@
     "fiterr_colnm" : "Te_fit_err", 
     "tstart" : 4.0,
     "tend" : 5.0,
-    "polyN" : 10
+    "polyN" : 14
 }

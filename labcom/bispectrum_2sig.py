@@ -16,47 +16,57 @@ def main():
 	""" 
 	{
 		"outdirname" : "174070_bispectrum", 
-		"output_filename": "lowk_ch8_highk_ch3_221_4.6335-4.7s_174070", 
+		"output_filename" : "highk_lowk_", 
 		"sn" : 174070, 
 		"subsn" : 1, 
 		"tstart_retrieve" : 4.0, 
 		"tend_retrieve" : 5.0, 
-		"diagname1" : "MWRM-COMB", 
-		"ch1_i" : 13, 
-		"ch1_q" : 14, 
-		"diagname2" : "MWRM-PXI", 
-		"ch2_i" : 1, 
-		"ch2_q" : 2, 
-		"tstart" : 4.6335, 
-		"tend" : 4.7, 
-		"NFFT2" : 4196, 
-		"ovr" : 0., 
+		"diagname_1" : "MWRM-PXI", 
+		"ch_i_1" : 1, 
+		"ch_q_1" : 2, 
+		"diagname_2" : "MWRM-COMB", 
+		"ch_i_2" : 13, 
+		"ch_q_2" : 14, 
+		"tstart_list" : [4.6, 4.6335, 4.7335], 
+		"tend_list" : [4.6314, 4.7314, 4.8], 
+		"NFFT2" : 512,
+		"ovr" : 0.5, 
 		"window" : "hann", 
-		"mode" : "221", 
-		"flim" : None, 
-		"interpolate" : False
+		"mode" : "112",
+		"flim1" : 300e3, 
+		"flim2" : 200e3,
+		"interpolate" : false
 	}
 	"""
 	#############
 
 	# main # EDIT HERE !!
-	tt1 = get_labcom.timetrace_iq(inputs["sn"], inputs["subsn"], inputs["tstart_retrieve"], inputs["tend_retrieve"], inputs["diagname1"], inputs["ch1_i"], inputs["ch1_q"])
-	tt2 = get_labcom.timetrace_iq(inputs["sn"], inputs["subsn"], inputs["tstart_retrieve"], inputs["tend_retrieve"], inputs["diagname2"], inputs["ch2_i"], inputs["ch2_q"])
-	twsigs = get_labcom.twin_signals(tt1.t_s, tt2.t_s, tt1.d, tt2.d, tt1.Fs, tt2.Fs)
-	bs = twsigs.bispectrum(inputs["tstart"], inputs["tend"], inputs["NFFT2"], inputs["ovr"], inputs["window"], inputs["mode"], interpolate=inputs["interpolate"])
+	if inputs["flim1"] == 0:
+		inputs["flim1"] = None
+	if inputs["flim2"] == 0:
+		inputs["flim2"] = None
+	tt1 = get_labcom.timetrace_iq(inputs["sn"], inputs["subsn"], inputs["tstart_retrieve"], inputs["tend_retrieve"], inputs["diagname_1"], inputs["ch_i_1"], inputs["ch_q_1"])
+	tt2 = get_labcom.timetrace_iq(inputs["sn"], inputs["subsn"], inputs["tstart_retrieve"], inputs["tend_retrieve"], inputs["diagname_2"], inputs["ch_i_2"], inputs["ch_q_2"])
+
+	tw = get_labcom.twin_signals(tt1.raw.t_s, tt2.raw.t_s, tt1.raw.d, tt2.raw.d, tt1.raw.Fs, tt2.raw.Fs)
+
+	bs = tw.bispectrum_multiwindows(inputs["tstart_list"], inputs["tend_list"], inputs["NFFT2"], inputs["ovr"], inputs["window"], inputs['mode'], 
+								 flim1=inputs['flim1'], flim2=inputs['flim2'], interpolate=inputs["interpolate"])
 	noiselevel = 4. / bs.NEns
 
 	# plot # EDIT HERE !!
-	figtitle = f"#{inputs['sn']}-{inputs['subsn']} {inputs['tstart']}-{inputs['tend']}s\n" \
+	trange_str = ", ".join([f"{inputs['tstart_list'][i]}-{inputs['tend_list'][i]}s" for i in range(len(inputs["tstart_list"]))])
+	figtitle = f"#{inputs['sn']}\n" \
+				f"{trange_str}\n" \
 				f"mode={inputs['mode']}\n" \
-				f"1: {inputs['diagname1']} {inputs['ch1_i']} {inputs['ch1_q']}\n" \
-				f"2: {inputs['diagname2']} {inputs['ch2_i']} {inputs['ch2_q']}"
+				f"1: {inputs['diagname_1']} {inputs['ch_i_1']} {inputs['ch_q_1']}\n" \
+				f"2: {inputs['diagname_2']} {inputs['ch_i_2']} {inputs['ch_q_2']}"
 	fig1, ax1 = plt.subplots()
-	norm = Normalize(vmin=noiselevel, vmax=noiselevel*5)
-	pcm1 = ax1.pcolormesh(bs.f1, bs.f2, bs.bicohsq, norm=norm, cmap="viridis")
+	norm = Normalize(vmin=noiselevel, vmax=noiselevel*4)
+	pcm1 = ax1.pcolormesh(bs.f1, bs.f2, bs.bicohsq, norm=norm, cmap="viridis", shading="auto")
 	cbar1 = fig1.colorbar(pcm1, ax=ax1, label="bicoherence^2")
-	ax1.set_xlabel("Frequency [Hz]")
-	ax1.set_ylabel("Frequency [Hz]")
+	ax1.set_xlabel("Frequency x [Hz]")
+	ax1.set_ylabel("Frequency y [Hz]")
 	# ax.set_xscale("")
 	# ax.set_yscale("")
 	# ax.legend()
@@ -64,10 +74,10 @@ def main():
 	fig1.tight_layout()
 
 	fig2, ax2 = plt.subplots()
-	pcm2 = ax2.pcolormesh(bs.f1, bs.f2, bs.biphase, cmap="twilight_shifted")
+	pcm2 = ax2.pcolormesh(bs.f1, bs.f2, bs.biphase, cmap="twilight_shifted", shading="auto")
 	cbar2 = fig2.colorbar(pcm2, ax=ax2, label="biphase [rad]")
-	ax2.set_xlabel("Frequency [Hz]")
-	ax2.set_ylabel("Frequency [Hz]")
+	ax2.set_xlabel("Frequency x [Hz]")
+	ax2.set_ylabel("Frequency y [Hz]")
 	# ax.set_xscale("")
 	# ax.set_yscale("")
 	# ax.legend()
@@ -81,11 +91,15 @@ def main():
 		'cbar1': cbar1, 
 		'fx': bs.f1, 
 		'fy': bs.f2, 
+		'fz': bs.f3, 
 		'd1': bs.bicohsq, 
+		'e1': bs.bicohsq_err,
 		'fig2': fig2, 
 		'pcm2': pcm2, 
 		'cbar2': cbar2, 
-		'd2': bs.biphase
+		'd2': bs.biphase, 
+		'e2': bs.biphase_err, 
+		'NEns': bs.NEns
 	}
 
 	# systematic output and close

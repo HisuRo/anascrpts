@@ -91,7 +91,7 @@ def main():
 
 	# systematic output and close
 	output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)
-	system.output_fig(fig, outdir, inputs, output_filepath, now)
+	system.output_fig(fig, outdir, output_filepath, now)
 	system.output_fig(fig2, outdir, inputs, output_filepath, now, suffix="_timetrace")
 	print("DONE !!")
 

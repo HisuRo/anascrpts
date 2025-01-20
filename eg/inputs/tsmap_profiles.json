@@ -1,0 +1,13 @@
+{
+    "outdirname" : "24c_1125_ETG/tsmap/Teprofs/184508", 
+    "output_filename": "Te_184508", 
+    "sn" : 184508, 
+    "subsn" : 1,
+    "d_colnm" : "Te",
+    "e_colnm" : "dTe",
+    "fit_colnm" : "Te_fit", 
+    "fiterr_colnm" : "Te_fit_err", 
+    "tstart" : 4.0,
+    "tend" : 5.0,
+    "polyN" : 10
+}

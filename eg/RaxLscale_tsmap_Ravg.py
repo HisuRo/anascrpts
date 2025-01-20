@@ -25,13 +25,15 @@ def main():
 		"Rat" : 4.1,
 		"dR" : 0.106,
 		"polyN" : 10, 
-		"rho_cut" : 0.9
+		"rho_cut" : 0.9, 
+		"include_outerside": false
 	}
 	"""
 	#############
 
 	# main # EDIT HERE !!
-	tR_ts = get_eg.tsmap(inputs["sn"], inputs["subsn"], inputs["d_colnm"], inputs["e_colnm"], inputs["tstart"], inputs["tend"], rho_cut=inputs['rho_cut'])
+	tR_ts = get_eg.tsmap(inputs["sn"], inputs["subsn"], inputs["d_colnm"], inputs["e_colnm"], 
+					  inputs["tstart"], inputs["tend"], rho_cut=inputs['rho_cut'], include_outerside=inputs['include_outerside'])
 	tR_ts.tR.twin.polyfit(polyN=inputs["polyN"])
 	tR_ts.tR.twin.pfit.Lscale(Rax=tR_ts.Rax)
 	dat = tR_ts.tR.twin.pfit.RL.R_window(inputs["Rat"], dR=inputs["dR"], include_outerside=True)

@@ -8,6 +8,7 @@
     "fit_colnm" : "Te_fit", 
     "fiterr_colnm" : "Te_fit_err", 
     "tstart" : 4.0,
-    "tend" : 5.0,
-    "polyN" : 14
+    "tend" : 5.2,
+    "polyN" : 14, 
+    "rho_cut": 0.9
 }

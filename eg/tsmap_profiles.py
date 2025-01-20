@@ -24,14 +24,15 @@ def main():
 		"fiterr_colnm" : "Te_fit_err", 
 		"tstart" : 4.0,
 		"tend" : 5.,
-		"polyN" : 10
+		"polyN" : 10, 
+		"rho_cut" : 1.05
 	}
 	"""
 	#############
 
 	# main # EDIT HERE !!
-	tR_ts = get_eg.tsmap(inputs["sn"], inputs["subsn"], inputs["d_colnm"], inputs["e_colnm"], inputs["tstart"], inputs["tend"])
-	tR_tsfit = get_eg.tsmap(inputs["sn"], inputs["subsn"], inputs["fit_colnm"], inputs["fiterr_colnm"], inputs["tstart"], inputs["tend"])
+	tR_ts = get_eg.tsmap(inputs["sn"], inputs["subsn"], inputs["d_colnm"], inputs["e_colnm"], inputs["tstart"], inputs["tend"], rho_cut=inputs['rho_cut'])
+	tR_tsfit = get_eg.tsmap(inputs["sn"], inputs["subsn"], inputs["fit_colnm"], inputs["fiterr_colnm"], inputs["tstart"], inputs["tend"], rho_cut=inputs['rho_cut'])
 	tR_ts.tR.twin.polyfit(polyN=inputs["polyN"])
 
 	for i, tat in enumerate(tR_ts.tR.twin.t_s):

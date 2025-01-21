@@ -1,6 +1,6 @@
 	{
 		"outdirname" : "24c_1125_ETG/tsmap/RaxLTe", 
-		"output_filename": "184516_4.6-4.68s_4.0_d0.106_14_0.9", 
+		"output_filename": "184516_4.6-4.68s_3.98_d0.106_14_0.8", 
 		"sn" : 184516, 
 		"subsn" : 1,
 		"d_colnm" : "Te",
@@ -10,6 +10,6 @@
 		"Rat" : 3.98,
 		"dR" : 0.106,
 		"polyN" : 14, 
-		"rho_cut": 0.9, 
+		"rho_cut": 0.7, 
 		"include_outerside": false
 	}

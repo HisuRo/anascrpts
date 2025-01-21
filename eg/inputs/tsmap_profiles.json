@@ -1,7 +1,7 @@
 {
-    "outdirname" : "24c_1125_ETG/tsmap/Teprofs/184508", 
-    "output_filename": "Te_184508", 
-    "sn" : 184508, 
+    "outdirname" : "24c_1125_ETG/tsmap/Teprofs/184516", 
+    "output_filename": "Te_184516", 
+    "sn" : 184516, 
     "subsn" : 1,
     "d_colnm" : "Te",
     "e_colnm" : "dTe",
@@ -10,5 +10,5 @@
     "tstart" : 4.0,
     "tend" : 5.2,
     "polyN" : 14, 
-    "rho_cut": 0.9
+    "rho_cut": 0.7
 }

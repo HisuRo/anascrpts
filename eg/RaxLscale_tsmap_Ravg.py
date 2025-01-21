@@ -1,6 +1,7 @@
 from nasu import get_eg, system
 import matplotlib.pyplot as plt # type: ignore
 import os
+import numpy as np # type: ignore
 
 def main():
 
@@ -55,10 +56,17 @@ def main():
 		'd': dat.avg.d, 
 		'e': dat.avg.e
 	}
+	output_array = np.array([
+		dat.t_s, 
+		dat.avg.d, 
+		dat.avg.e
+	]).T
+	colnm_list = ["Time [s]", "Rax/LTe", "err"]
 
 	# systematic output and close
 	output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)
 	system.output_fig(fig, outdir, output_filepath, now)  # suffix="_0"
+	system.output_dat(output_array, colnm_list, outdir, output_filepath, now)
 	print("DONE !!")
 
 if __name__ == "__main__":

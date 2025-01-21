@@ -4,6 +4,7 @@ import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
 from nasu import system
 import os
+import numpy as np # type: ignore
 
 def main():
 	# initial setting and input
@@ -42,10 +43,14 @@ def main():
 	outputs = {
 		"fig": fig
 	}
+	output_array = np.array([
+	])
+	colnm_list = ["",""]
 
 	# systematic output and close
 	output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)
 	system.output_fig(fig, outdir, output_filepath, now)  # suffix="_0"
+	system.output_dat(output_array, colnm_list, outdir, output_filepath)
 	print("DONE !!")
 
 if __name__ == "__main__":

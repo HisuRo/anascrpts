@@ -43,7 +43,7 @@ def main():
 	fig, ax = plt.subplots()
 	ax.errorbar(dat.t_s, dat.avg.d, dat.avg.e, ecolor="grey")
 	ax.set_xlabel("Time [s]")
-	ax.set_ylabel(f"{inputs['d_colnm']}")
+	ax.set_ylabel(f"{inputs['output_label']}")
 	fig.suptitle(f"{inputs['sn']}-{inputs['subsn']}\n"
 			     f"{inputs['Rat']} [m] dR={inputs['dR']}")
 	fig.tight_layout()
@@ -60,7 +60,7 @@ def main():
 		dat.avg.d, 
 		dat.avg.e
 	]).T
-	colnm_list = ["Time [s]", "Rax/LTe", "err"]
+	colnm_list = ["Time [s]", inputs['output_label'], "err"]
 
 	# systematic output and close
 	output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)

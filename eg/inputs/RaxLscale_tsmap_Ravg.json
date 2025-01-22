@@ -11,5 +11,6 @@
 		"dR" : 0.106,
 		"polyN" : 14, 
 		"rho_cut": 0.7, 
-		"include_outerside": false
+		"include_outerside": false, 
+		"output_label": "ne [e19m-3]"
 	}

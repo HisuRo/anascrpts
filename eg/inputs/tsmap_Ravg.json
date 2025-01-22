@@ -1,15 +1,16 @@
 	{
-		"outdirname" : "24c_1125_ETG/tsmap/Te", 
+		"outdirname" : "24c_1125_ETG/tsmap/ne", 
 		"output_filename": "184508_5.0-5.18s_3.97_0.106_14_0.7", 
 		"sn" : 184508, 
 		"subsn" : 1,
-		"d_colnm" : "Te",
-		"e_colnm" : "dTe",
+		"d_colnm" : "ne_calFIR",
+		"e_colnm" : "dne_calFIR",
 		"tstart" : 5.0,
 		"tend" : 5.18,
 		"Rat" : 3.97,
 		"dR" : 0.106,
 		"polyN" : 14, 
 		"rho_cut": 0.7, 
-		"include_outerside": false
+		"include_outerside": false, 
+		"output_label": "ne [e19m-3]"
 	}

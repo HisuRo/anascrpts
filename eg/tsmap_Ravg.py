@@ -35,8 +35,7 @@ def main():
 	# main # EDIT HERE !!
 	tR_ts = get_eg.tsmap(inputs["sn"], inputs["subsn"], inputs["d_colnm"], inputs["e_colnm"], 
 					  inputs["tstart"], inputs["tend"], rho_cut=inputs['rho_cut'], include_outerside=inputs['include_outerside'])
-	tR_ts.tR.twin.polyfit(polyN=inputs["polyN"])
-	dat = tR_ts.tR.twin.pfit.R_window(inputs["Rat"], dR=inputs["dR"], include_outerside=True)
+	dat = tR_ts.tR.twin.R_window(inputs["Rat"], dR=inputs["dR"], include_outerside=True)
 	dat.average(axis=1, skipnan=True)
 
 	# plot # EDIT HERE !!

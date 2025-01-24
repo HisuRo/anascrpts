@@ -47,7 +47,7 @@ def main():
 	# systematic output and close
 	output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)
 	system.output_fig(fig, outdir, output_filepath, now)  # suffix="_0"
-	system.output_dat(output_array, colnm_list, outdir, output_filepath)
+	system.output_dat(output_array, colnm_list, outdir, output_filepath, now)
 	print("DONE !!")
 
 if __name__ == "__main__":

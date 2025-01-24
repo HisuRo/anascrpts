@@ -26,7 +26,7 @@ def main():
 	print(inputs['text'])
 		
 	xx = np.arange(100) * 0.01
-	yy = 2 * xx
+	yy = inputs['tilt'] * xx
 
 	# plot # EDIT HERE !!
 	fig, ax = plt.subplots()
@@ -54,7 +54,7 @@ def main():
 	# systematic output and close
 	output_filepath = system.output_pickle_file(outputs, inputs, logs, outdir)
 	system.output_fig(fig, outdir, output_filepath, now)  # suffix="_0"
-	system.output_dat(output_array, colnm_list, outdir, output_filepath)
+	system.output_dat(output_array, colnm_list, outdir, output_filepath, now)
 	print("DONE !!")
 
 if __name__ == "__main__":

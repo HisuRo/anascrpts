@@ -1,5 +1,6 @@
 {
     "outdirname" : "text", 
     "output_filename": "helloworld", 
-    "text": "hello, world!"
+    "text": "hello, world!", 
+    "tilt": 2.0
 }

@@ -1,6 +1,0 @@
-{
-    "outdirname" : "174070_bispectrum", 
-    "output_filename" : "highk_ch3_4.6-4.8s_174070_NFFT256_hamming_300kHz_vsf2",  
-    "input_datpath" : "C:/python_data/174070_bispectrum/highk_ch3_4.6-4.8s_174070_NFFT256_hamming_300kHz.pkl", 
-    "fix_var" : "f2"
-}

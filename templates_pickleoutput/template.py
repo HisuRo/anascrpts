@@ -1,4 +1,4 @@
-from nasu import get_d3d, system
+from gsrc import system
 import matplotlib.pyplot as plt # type: ignore
 import os
 import numpy as np # type: ignore
@@ -15,8 +15,8 @@ def main():
 	### input file template ### EDIT HERE !!
 	""" 
 	{
-		"outdirname" : "120329_spectra", 
-		"output_filename": "mmspc4_120329_spectra", 
+		"outdirname" : "test", 
+		"output_filename": "test", 
 		"" : ""
 	}
 	"""

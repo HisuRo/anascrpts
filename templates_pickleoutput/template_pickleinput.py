@@ -2,7 +2,7 @@
 
 import numpy as np # type: ignore
 import matplotlib.pyplot as plt # type: ignore
-from nasu import system
+from gsrc import system
 import os
 import numpy as np # type: ignore
 
@@ -18,9 +18,9 @@ def main():
 	### input ### EDIT HERE !!!
 	""" template 
 	{
-		"outdirname" : "120329_spectra", 
-		"output_filename" : "mmspc4_120329_spectra_powerlaw",  
-		"input_datpath" : "/fusion/projects/xpsi/turbulence_and_transport/nasut/120329_spectra/mmspc4_120329_spectra.pkl", 
+		"outdirname" : "test", 
+		"output_filename" : "test",  
+		"input_datpath" : "", 
 		"" : 
 	}
 	"""

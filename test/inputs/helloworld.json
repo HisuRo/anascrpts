@@ -1,0 +1,5 @@
+{
+    "outdirname" : "text", 
+    "output_filename": "helloworld", 
+    "text": "hello, world!"
+}

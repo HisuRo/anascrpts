@@ -1,17 +1,19 @@
 analysis_scripts
 - tool kits to analyze signals
 - Note: input file name must be made by json file as the <basename>.json, <basename> is the basename of corresponding script, without extention .py.
-- Note: Please clone gsrc package from GitHub as submodule. 
+- Note: Please update gsrc package
+  - git submodule init
+  - git submodule update
 - Note: Please make config.json file to teach working directory, temporal directory, output directory, inputs directory, and auto output directory. 
 
 - contents
   - __init__.py
   - .gitignore
   - .gitmodules
-  - config.json : made by yourself
+  - config.json
   - README.md
   - showfig.py
-  - gsrc : cloned as submodule
+  - gsrc
   - templates_pickleoutput
     - template_pickleinput.py
     - template.py
